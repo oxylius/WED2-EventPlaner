@@ -67,6 +67,34 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
+    <Content Include="index.html" />
+    <Content Include="source\classes\controllers\event\detailController.js" />
+    <Content Include="source\classes\controllers\event\listController.js" />
+    <Content Include="source\classes\main.js" />
+    <Content Include="source\classes\model\event.js" />
+    <Content Include="source\classes\modules\lafete.js" />
+    <Content Include="source\classes\repository\eventRepository.js" />
+    <Content Include="source\classes\services\uuidService.js" />
+    <Content Include="source\frameworks\angular\angular.min.js" />
+    <Content Include="source\frameworks\bootstrap\bootstrap.min.css" />
+    <Content Include="source\index.html" />
+    <Content Include="source\libraries\angular\angular-route.js" />
+    <Content Include="source\libraries\require\require.js" />
+    <Content Include="source\views\event\detail.html" />
+    <Content Include="source\views\event\list.html" />
+    <Content Include="tests\classes\controllers\eventListControllerTest.js" />
+    <Content Include="tests\classes\factories\eventFactory.js" />
+    <Content Include="tests\classes\model\eventTest.js" />
+    <Content Include="tests\classes\repository\eventRepositoryTest.js" />
+    <Content Include="tests\classes\tests.js" />
+    <Content Include="tests\index.html" />
+    <Content Include="tests\libraries\angular\angularMocks.js" />
+    <Content Include="tests\libraries\jasmine\boot.js" />
+    <Content Include="tests\libraries\jasmine\console.js" />
+    <Content Include="tests\libraries\jasmine\jasmine-html.js" />
+    <Content Include="tests\libraries\jasmine\jasmine.css" />
+    <Content Include="tests\libraries\jasmine\jasmine.js" />
+    <Content Include="tests\libraries\jasmine\jasmine_favicon.png" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -81,9 +109,7 @@
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="webapp\" />
-  </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
@@ -95,16 +121,7 @@
     <VisualStudio>
       <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
         <WebProjectProperties>
-          <UseIIS>True</UseIIS>
-          <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>62616</DevelopmentServerPort>
-          <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:61717/</IISUrl>
-          <NTLMAuthentication>False</NTLMAuthentication>
-          <UseCustomServer>False</UseCustomServer>
-          <CustomServerUrl>
-          </CustomServerUrl>
-          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+          <SaveServerSettingsInUserFile>True</SaveServerSettingsInUserFile>
         </WebProjectProperties>
       </FlavorProperties>
     </VisualStudio>
