@@ -25,7 +25,7 @@ define(['tests/factories/eventFactory', 'app/model/event', 'app/repository/event
 
 		describe('get()', function() {
 			beforeEach(function() {
-               
+			    eventRepository.add(event, null);
 			});
 
 			describe('by object id', function() {

@@ -67,12 +67,13 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
-    <Content Include="index.html" />
     <Content Include="source\classes\controllers\event\detailController.js" />
     <Content Include="source\classes\controllers\event\listController.js" />
     <Content Include="source\classes\main.js" />
     <Content Include="source\classes\model\event.js" />
+    <Content Include="source\classes\model\guest.js" />
     <Content Include="source\classes\modules\lafete.js" />
+    <Content Include="source\classes\repository\guestRepository.js" />
     <Content Include="source\classes\repository\eventRepository.js" />
     <Content Include="source\classes\services\uuidService.js" />
     <Content Include="source\frameworks\angular\angular.min.js" />
@@ -103,6 +104,7 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="tests\libraries\require\require.js" />
     <Content Include="Web.config" />
     <None Include="_references.js" />
   </ItemGroup>

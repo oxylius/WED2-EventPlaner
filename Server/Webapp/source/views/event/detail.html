@@ -20,3 +20,8 @@
 
 <h3>Date &amp; time</h3>
 <p>{{event.begin | date:"dd.MM.yy HH:mm"}} - {{event.end | date:"dd.MM.yy HH:mm"}}</p>
+
+<h3>Guests</h3>
+<ul>
+    <li data-ng-repeat="guest in guests">{{guest.name}}</li>
+</ul>

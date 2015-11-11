@@ -118,10 +118,10 @@ var app = express();
 app.use(allowCrossDomain);
 app.use(bodyParser.json());
 app.use('/api', express.static(__dirname + '/api'));
-app.use('/', express.static(__dirname + '/webapp/source'));
+app.use('/', express.static(__dirname + '/Webapp/source'));
 // tests, remove this for production
-app.use('/tests', express.static(__dirname + '/webapp/tests'));
-app.use('/source', express.static(__dirname + '/webapp/source'));
+app.use('/tests', express.static(__dirname + '/Webapp/tests'));
+app.use('/source', express.static(__dirname + '/Webapp/source'));
 
 
 /**
