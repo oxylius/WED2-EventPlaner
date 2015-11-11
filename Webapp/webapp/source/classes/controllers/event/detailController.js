@@ -1,0 +1,13 @@
+define([], function() {
+	'use strict';
+
+	var EventDetailController = function($scope, $routeParams, EventRepository) {
+		this.scope = $scope;
+        EventRepository.get($routeParams.eventId, function (event) {
+            this.scope.event = event;
+        }.bind(this), 
+        function () { console.log("error"); });
+	};
+
+	return EventDetailController;
+});

@@ -5,7 +5,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{48d18821-c7b1-4c04-b5c9-996bfe28841e}</ProjectGuid>
     <ProjectHome />
-    <ProjectView>ShowAllFiles</ProjectView>
+    <ProjectView>ProjectFiles</ProjectView>
     <StartupFile>www</StartupFile>
     <WorkingDirectory>.</WorkingDirectory>
     <OutputPath>.</OutputPath>
@@ -16,12 +16,12 @@
     <StartWebBrowser>True</StartWebBrowser>
     <LaunchUrl>http://localhost:8080</LaunchUrl>
     <DebuggerPort>6666</DebuggerPort>
+    <Name>Server</Name>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)' == 'Debug'" />
   <PropertyGroup Condition="'$(Configuration)' == 'Release'" />
   <ItemGroup>
     <Folder Include="api\" />
-    <Folder Include="webapp\" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="www" />
