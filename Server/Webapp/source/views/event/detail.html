@@ -11,17 +11,17 @@
 <h3 data-ng-if="event.eventGift">Event gift</h3>
 <p data-ng-if="event.eventGift">{{event.eventGift}}</p>
 
-<h3>Location</h3>
+<h3><i class="mdi mdi-map-marker"></i>Location</h3>
 <p>
 	<strong>{{event.location.name}}</strong><br />
 	{{event.location.street}}<br />
 	{{event.location.plz}} {{event.location.city}}
 </p>
 
-<h3>Date &amp; time</h3>
+<h3><i class="mdi mdi-clock"></i>Date &amp; time</h3>
 <p>{{event.begin | date:"dd.MM.yy HH:mm"}} - {{event.end | date:"dd.MM.yy HH:mm"}}</p>
 
 <h3>Guests</h3>
 <ul>
-    <li data-ng-repeat="guest in guests">{{guest.name}}</li>
+    <li data-ng-repeat="guest in guests"><p>{{guest.name}}</p></li>
 </ul>

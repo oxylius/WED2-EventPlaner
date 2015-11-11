@@ -77,7 +77,9 @@
     <Content Include="source\classes\repository\eventRepository.js" />
     <Content Include="source\classes\services\uuidService.js" />
     <Content Include="source\frameworks\angular\angular.min.js" />
-    <Content Include="source\frameworks\bootstrap\bootstrap.min.css" />
+    <Content Include="source\res\css\bootstrap.min.css" />
+    <Content Include="source\res\css\materialdesignicons.min.css" />
+    <Content Include="source\res\css\mdb.min.css" />
     <Content Include="source\index.html" />
     <Content Include="source\libraries\angular\angular-route.js" />
     <Content Include="source\libraries\require\require.js" />
@@ -96,6 +98,16 @@
     <Content Include="tests\libraries\jasmine\jasmine.css" />
     <Content Include="tests\libraries\jasmine\jasmine.js" />
     <Content Include="tests\libraries\jasmine\jasmine_favicon.png" />
+    <Content Include="source\res\font\roboto\Roboto-Bold.woff" />
+    <Content Include="source\res\font\roboto\Roboto-Bold.woff2" />
+    <Content Include="source\res\font\roboto\Roboto-Light.woff" />
+    <Content Include="source\res\font\roboto\Roboto-Light.woff2" />
+    <Content Include="source\res\font\roboto\Roboto-Medium.woff" />
+    <Content Include="source\res\font\roboto\Roboto-Medium.woff2" />
+    <Content Include="source\res\font\roboto\Roboto-Regular.woff" />
+    <Content Include="source\res\font\roboto\Roboto-Regular.woff2" />
+    <Content Include="source\res\font\roboto\Roboto-Thin.woff" />
+    <Content Include="source\res\font\roboto\Roboto-Thin.woff2" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -111,7 +123,9 @@
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="source\res\fonts\" />
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

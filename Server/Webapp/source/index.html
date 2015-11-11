@@ -1,12 +1,22 @@
-<!doctype html>
+﻿<!doctype html>
 <html lang="de">
 	<head>
 		<meta charset="utf-8" />
 		<title>Lafete</title>
-		<link rel="stylesheet" href="frameworks/bootstrap/bootstrap.min.css">
+		<link rel="stylesheet" href="res/css/bootstrap.min.css">
+        <link rel="stylesheet" href="res/css/mdb.min.css">
+        <link rel="stylesheet" href="res/css/materialdesignicons.min.css">
 	</head>
 	<body>
-		<div ng-view></div>
+		<main>
+            <div class="content-wrapper">
+                <div class="container-fluid">
+                    <div ng-view class="card-panel">
+
+                    </div>
+                </div>
+            </div>
+        </main>
 		<script src="./libraries/require/require.js" data-main="./classes/main.js"></script>
 	</body>
 </html>
