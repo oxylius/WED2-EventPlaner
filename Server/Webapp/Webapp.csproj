@@ -62,6 +62,7 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="source\classes\controllers\event\addController.js" />
     <Content Include="source\classes\controllers\event\detailController.js" />
     <Content Include="source\classes\controllers\event\listController.js" />
     <Content Include="source\classes\main.js" />
@@ -74,10 +75,20 @@
     <Content Include="source\frameworks\angular\angular.min.js" />
     <Content Include="source\res\css\bootstrap.min.css" />
     <Content Include="source\res\css\materialdesignicons.min.css" />
+    <Content Include="source\res\css\mdb.css" />
     <Content Include="source\res\css\mdb.min.css" />
     <Content Include="source\index.html" />
     <Content Include="source\libraries\angular\angular-route.js" />
     <Content Include="source\libraries\require\require.js" />
+    <Content Include="source\res\css\style.css" />
+    <Content Include="source\res\fonts\materialdesignicons-webfont.svg" />
+    <Content Include="source\res\sass\mdb.css">
+      <DependentUpon>mdb.scss</DependentUpon>
+    </Content>
+    <Content Include="source\res\sass\mdb.min.css">
+      <DependentUpon>mdb.css</DependentUpon>
+    </Content>
+    <Content Include="source\views\event\add.html" />
     <Content Include="source\views\event\detail.html" />
     <Content Include="source\views\event\list.html" />
     <Content Include="tests\classes\controllers\eventListControllerTest.js" />
@@ -103,6 +114,44 @@
     <Content Include="source\res\font\roboto\Roboto-Regular.woff2" />
     <Content Include="source\res\font\roboto\Roboto-Thin.woff" />
     <Content Include="source\res\font\roboto\Roboto-Thin.woff2" />
+    <Content Include="source\res\sass\mdb.scss" />
+    <Content Include="source\res\sass\mdb\free\_animations.scss" />
+    <Content Include="source\res\sass\mdb\free\_buttons.scss" />
+    <Content Include="source\res\sass\mdb\free\_cards.scss" />
+    <Content Include="source\res\sass\mdb\free\_carousel.scss" />
+    <Content Include="source\res\sass\mdb\free\_color.scss" />
+    <Content Include="source\res\sass\mdb\free\_dropdown.scss" />
+    <Content Include="source\res\sass\mdb\free\_forms-basic.scss" />
+    <Content Include="source\res\sass\mdb\free\_global.scss" />
+    <Content Include="source\res\sass\mdb\free\_helpers.scss" />
+    <Content Include="source\res\sass\mdb\free\_hover-effects.scss" />
+    <Content Include="source\res\sass\mdb\free\_mixins.scss" />
+    <Content Include="source\res\sass\mdb\free\_navbar.scss" />
+    <Content Include="source\res\sass\mdb\free\_normalize.scss" />
+    <Content Include="source\res\sass\mdb\free\_pagination.scss" />
+    <Content Include="source\res\sass\mdb\free\_panel.scss" />
+    <Content Include="source\res\sass\mdb\free\_parallax.scss" />
+    <Content Include="source\res\sass\mdb\free\_prefixer.scss" />
+    <Content Include="source\res\sass\mdb\free\_roboto.scss" />
+    <Content Include="source\res\sass\mdb\free\_scrollspy.scss" />
+    <Content Include="source\res\sass\mdb\free\_shadows.scss" />
+    <Content Include="source\res\sass\mdb\free\_tooltip.scss" />
+    <Content Include="source\res\sass\mdb\free\_typography.scss" />
+    <Content Include="source\res\sass\mdb\free\_variables.scss" />
+    <Content Include="source\res\sass\mdb\free\_video-background.scss" />
+    <Content Include="source\res\sass\mdb\free\_waves.scss" />
+    <None Include="compilerconfig.json" />
+    <Content Include="compilerconfig.json.defaults">
+      <DependentUpon>compilerconfig.json</DependentUpon>
+    </Content>
+    <Content Include="source\res\fonts\materialdesignicons-webfont.eot" />
+    <Content Include="source\res\fonts\materialdesignicons-webfont.ttf" />
+    <Content Include="source\res\fonts\materialdesignicons-webfont.woff" />
+    <Content Include="source\res\fonts\materialdesignicons-webfont.woff2" />
+    <Content Include="source\res\fonts\MaterialIcons-Regular.woff2" />
+    <Content Include="source\res\fonts\MaterialIcons-Regular.eot" />
+    <Content Include="source\res\fonts\MaterialIcons-Regular.ttf" />
+    <Content Include="source\res\fonts\MaterialIcons-Regular.woff" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -118,9 +167,7 @@
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="source\res\fonts\" />
-  </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

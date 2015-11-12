@@ -1,0 +1,9 @@
+﻿[
+  {
+    "outputFile": "source/res/css/mdb.css",
+    "inputFile": "source/res/sass/mdb.scss",
+    "minify": {
+        "enabled": true
+    }
+  }
+]
