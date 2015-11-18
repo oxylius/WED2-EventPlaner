@@ -1,4 +1,11 @@
-<h2 class="h2-responsive">{{event.name}}</h2>
+<nav>
+    <ul class="pagination pagination-lg">
+        <li><a href="#/list"><i class="mdi mdi-home"></i></a></li>
+    </ul>
+</nav>
+
+
+<h2 class="h2-responsive">{{event.name}} <a class="btn-floating btn-large waves-effect waves-light red animated zoomIn" href="#/edit/event/{{event.id}}"><i class="material-icons">edit</i></a></h2>
 <p>{{event.description}}</p>
 <p data-ng-if="event.maximalAmoutOfGuests">
 	<strong>Maximal amount of guests:</strong>

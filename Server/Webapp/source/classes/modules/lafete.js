@@ -18,7 +18,7 @@ define(['frameworks/angular', 'app/controllers/event/listController', 'app/contr
 	EventDetailController.$inject = ['$scope', '$routeParams', 'EventRepository', 'GuestRepository'];
 	Lafete.controller('EventDetailController', EventDetailController);
 
-	EventAddController.$inject = ['$scope', 'EventRepository'];
+	EventAddController.$inject = ['$scope', '$log', '$routeParams', 'EventRepository'];
 	Lafete.controller('EventAddController', EventAddController);
 
 	/* routes */
@@ -32,6 +32,10 @@ define(['frameworks/angular', 'app/controllers/event/listController', 'app/contr
 			templateUrl: './views/event/detail.html'
 		})
         .when('/add/event', {
+            controller: 'EventAddController',
+            templateUrl: './views/event/add.html'
+        })
+        .when('/edit/event/:eventId', {
             controller: 'EventAddController',
             templateUrl: './views/event/add.html'
         })

@@ -10,6 +10,7 @@ define(['app/services/uuidService'], function(UUIDService) {
 		this.location = location;
 		this.times = times;
 		this.maximalAmoutOfGuests = maximalAmoutOfGuests;
+		this.guests = null;
 
 		Object.defineProperty(this, 'begin', {
 			get: function() {

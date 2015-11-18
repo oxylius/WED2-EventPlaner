@@ -5,7 +5,8 @@ define(['app/model/event'], function(Event) {
 	    this.urls = {
 	        all: '/api/events',
 	        get: '/api/events/:eventId',
-	        add: '/api/events'
+	        add: '/api/events',
+            edit: '/api/events/:eventId'
 	    };
 
 	    this.events = [];
@@ -44,6 +45,13 @@ define(['app/model/event'], function(Event) {
 		 */
 	    this.add = function (event, successCallback) {
 	        $http.post(this.urls.add, event)
+					.success(function (eventDTO) {
+					    successCallback(Event.createFromDTO(eventDTO));
+					});
+	    };
+
+	    this.edit = function (event, successCallback) {
+	        $http.post(this.urls.edit.replace(':eventId', event.id), event)
 					.success(function (eventDTO) {
 					    successCallback(Event.createFromDTO(eventDTO));
 					});
