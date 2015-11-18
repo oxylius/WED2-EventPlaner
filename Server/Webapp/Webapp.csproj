@@ -73,13 +73,13 @@
     <Content Include="source\classes\repository\eventRepository.js" />
     <Content Include="source\classes\services\uuidService.js" />
     <Content Include="source\frameworks\angular\angular.min.js" />
+    <Content Include="source\libraries\require\require.js" />
     <Content Include="source\res\css\bootstrap.min.css" />
     <Content Include="source\res\css\materialdesignicons.min.css" />
     <Content Include="source\res\css\mdb.css" />
     <Content Include="source\res\css\mdb.min.css" />
     <Content Include="source\index.html" />
     <Content Include="source\libraries\angular\angular-route.js" />
-    <Content Include="source\libraries\require\require.js" />
     <Content Include="source\res\css\style.css" />
     <Content Include="source\res\fonts\materialdesignicons-webfont.svg" />
     <Content Include="source\res\sass\mdb.css">

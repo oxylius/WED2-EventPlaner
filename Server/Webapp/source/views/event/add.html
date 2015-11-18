@@ -1,1 +1,43 @@
-﻿<h2 class="h2-responsive">Add Event</h2>
+﻿<h2 class="h2-responsive center-on-small-only">Add Event</h2>
+<div class="row">
+    <div class="input-field center-on-small-only">
+        <input id="name" placeholder="Event Name" type="text" class="validate" data-ng-model="event.name">
+    </div>
+</div>
+<div class="row">
+    <div class="input-field center-on-small-only">
+        <i class="material-icons prefix">info</i>
+        <input id="description" placeholder="Description" type="text" class="validate" data-ng-model="event.description">
+    </div>
+</div>
+<div class="row">
+    <div class="input-field center-on-small-only">
+        <i class="mdi mdi-target prefix"></i>
+        <input id="targetGroup" placeholder="Target Group" type="text" class="validate" data-ng-model="event.targetgroup">
+    </div>
+</div>
+<div class="row">
+    <div class="input-field center-on-small-only">
+        <i class="mdi mdi-gift prefix"></i>
+        <input id="gift" placeholder="Event Gift" type="text" class="validate" data-ng-model="event.gift">
+    </div>
+</div>
+<div class="row">
+    <div class="input-field center-on-small-only">
+        <i class="mdi mdi-map-marker prefix"></i>
+        <input id="location" placeholder="Location" type="text" class="validate" data-ng-model="event.location">
+    </div>
+</div>
+<div class="row">
+    <div class="input-field col-md-6">
+        <i class="mdi mdi-calendar-clock prefix"></i>
+        <input id="begin" placeholder="Begin" type="datetime" class="validate" data-ng-model="event.times.begin">
+    </div>
+    <div class="input-field col-md-6">
+        <i class="mdi mdi-calendar-clock prefix"></i>
+        <input id="end" placeholder="End" type="datetime" class="validate" data-ng-model="event.time.end">
+    </div>
+</div>
+<div class="row">
+    <a class="btn-floating btn-large waves-effect waves-light red animated zoomIn" data-ng-click="addEvent(event)"><i class="material-icons">add</i></a>
+</div>

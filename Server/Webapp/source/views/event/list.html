@@ -1,9 +1,8 @@
 <div class="center-on-small-only">
-    <h1 class="h1-responsive">Lafete <a class="btn-floating btn-large waves-effect waves-light red animated zoomIn" href="#/add/event"><i class="material-icons">add</i></a>
-</h1>
+    <h1 class="h1-responsive">Lafete <a class="btn-floating btn-large waves-effect waves-light red animated zoomIn" href="#/add/event"><i class="material-icons">add</i></a></h1>
 </div>
 <div class="collection">
-		<a class="collection-item" data-ng-repeat="event in events" data-ng-href="#/events/{{event.id}}" type="button"><h4 class="h4-responsive">{{event.name}}</h4><br />
+		<a class="collection-item center-on-small-only" data-ng-repeat="event in events" data-ng-href="#/events/{{event.id}}" type="button"><h4 class="h4-responsive">{{event.name}}</h4><br />
 		{{event.location.name}}, {{event.location.street}}, {{event.location.plz}} {{event.location.city}}<br />
 		{{event.times.begin | date:"dd.MM.yy HH:mm"}} - {{event.times.end | date:"dd.MM.yy HH:mm"}}</a>
 </div>
