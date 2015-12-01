@@ -1,0 +1,43 @@
+// Center text on mobile
+.center-on-small-only {
+  @media #{$small-and-down} {
+    text-align: center;
+  }
+} 
+
+.no-margin {
+    margin: 0;
+}
+
+.no-gutter > [class*=col-] {
+    padding-right: 0;
+    padding-left: 0;
+}
+
+.no-padding {
+    padding: 0;
+}
+
+.no-pad-mar {
+    margin: 0;
+    padding: 0;
+}
+
+.space-30 {
+    height: 30px; 
+}
+
+.space-50 {
+    height: 30px; 
+}
+ 
+.verticalcenter{
+    position: relative;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+    -o-transform: translateY(-50%);
+    transform: translateY(-50%);
+}
+
+
+
