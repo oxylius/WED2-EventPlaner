@@ -2,53 +2,47 @@
 
 import UuidService = require("../services/uuidService");
 
-define(['app/services/uuidService'], function (UUIDService) {
-	'use strict';
+class Event {
+    constructor(
+        public name: string,
+        public targetGroup: string,
+        public location: string,
+        public maximalAmountOfGuests: number,
+        public eventGift: string = "",
+        public description: string = "",
+        public id: string = null,
+        public times : any = null) {
+        this.id = id || UuidService.getRandomUuid();
 
-	var Event = function(name, description, targetGroup, eventGift, location, times, maximalAmoutOfGuests, id) {
-		this.id = id || UUIDService.getRandomUuid();
-		this.name = name;
-		this.description = description;
-		this.targetGroup = targetGroup;
-		this.eventGift = eventGift;
-		this.location = location;
-		this.times = times;
-        this.maximalAmoutOfGuests = maximalAmoutOfGuests;
+    }
 
-		Object.defineProperty(this, 'begin', {
-			get: function() {
-				return this.times.begin;
-			},
-			set: function(begin) {
-				this.times.begin = begin;
-			}
-		});
+    get begin(): any {
+        return this.times.begin;
+    }
 
-		Object.defineProperty(this, 'end', {
-			get: function() {
-				return this.times.end;
-			},
-			set: function(end) {
-				this.times.end = end;
-			}
-		});
-	};
+    set begin(begin: any) {
+        this.times.begin = begin;
+    }
 
-	/**
-	 * Create Event object from data transfer object (json object)
-	 */
-	Event.createFromDTO = function(jsonData) {
-		return new Event(
-			jsonData.name,
-			jsonData.description,
-			jsonData.targetGroup,
-			jsonData.eventGift,
-			jsonData.location,
-			jsonData.times,
-			jsonData.maximalAmoutOfGuests,
-			jsonData.id
-		);
-	};
+    get end(): any {
+        return this.times.end;
+    }
 
-	return Event;
-});
+    set end(end: any) {
+        this.times.end = end;
+    }
+
+    createFromDTO(jsonData: JSON): Event{
+        return new Event(
+            jsonData.name,
+            jsonData.targetGroup,
+            jsonData.location,
+            jsonData.maximalAmountOfGuests,
+            jsonData.eventGift,
+            jsonData.description,
+            jsonData.id,
+            jsonData.times);
+    }
+}
+
+export = Event;
