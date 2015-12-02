@@ -1,15 +1,25 @@
-﻿define([], function() {
-    'use strict';
+﻿import Scope = angular.IScope;
 
-    var EventAddController = function ($scope, EventRepository) {
-        this.scope = $scope;
-        this.addEvent = function (event) {
-            Console.log(event);
-            EventRepository.add(event, function () {
+import Event = require("../../model/event");
+import EventRepository = require("../../repository/eventRepository");
 
-            })
-        }
+class EventAddController {
+    private event: Event;
+    private editMode: Boolean;
+
+    static $inject = [
+        '$scope',
+        'EventRepository'
+    ];
+
+    constructor(private scope: Scope, private eventRepository: EventRepository) {
+        this.event = new Event();
+        this.editMode = false;
     }
 
-    return EventAddController;
-})
+    addEvent(event:Event): void {
+        this.eventRepository.add(event);
+    }
+}
+
+export = EventAddController;

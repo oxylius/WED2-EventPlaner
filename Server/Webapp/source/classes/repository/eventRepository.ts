@@ -7,7 +7,7 @@ import IQService = angular.IQService;
 import IPromise = angular.IPromise;
 
 class EventRepository {
-    private urls :any = {
+    private urls: any = {
         all: '/api/events',
         get: '/api/events/:eventId',
         add: '/api/events',
@@ -27,11 +27,17 @@ class EventRepository {
             resolve(this.$http.get(this.urls.all));
         });
 
-    } 
+    }
 
     get(event: string): IPromise<Event> {
         return this.$q((resolve) => {
             resolve(this.$http.get(this.urls.get.replace(':eventId', event)));
+        });
+    }
+
+    add(event: Event): IPromise<Event> {
+        return this.$q((resolve) => {
+            resolve(this.$http.post(this.urls.add, event));
         });
     }
 }
@@ -67,4 +73,3 @@ export = EventRepository;
 //        .success(function (eventDTO) {
 //            successCallback(Event.createFromDTO(eventDTO));
 //        });
-};

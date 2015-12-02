@@ -4,10 +4,10 @@ import UuidService = require("../services/uuidService");
 
 class Event {
     constructor(
-        public name: string,
-        public targetGroup: string,
-        public location: string,
-        public maximalAmountOfGuests: number,
+        public name: string = "",
+        public targetGroup: string = "",
+        public location: string = "",
+        public maximalAmountOfGuests: number = 0,
         public eventGift: string = "",
         public description: string = "",
         public id: string = null,

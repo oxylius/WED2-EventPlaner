@@ -1,7 +1,4 @@
-define(["require", "exports", "../repository/eventRepository", "../repository/guestRepository ", "../controllers/event/listController", "../controllers/event/detailController"], function (require, exports, EventRepository, GuestRepository, EventListController, EventDetailController) {
-    //define(['frameworks/angular', 'app/controllers/event/listController', 'app/controllers/event/detailController', 'app/controllers/event/addController', 'app/repository/eventRepository', 'app/repository/guestRepository', 'libraries/angularRoute'],
-    //	function (Angular, EventListController, EventDetailController, EventAddController, EventRepository, GuestRepository) {
-    //	'use strict';
+define(["require", "exports", "../repository/eventRepository", "../repository/guestRepository ", "../controllers/event/listController", "../controllers/event/detailController", "../controllers/event/addController"], function (require, exports, EventRepository, GuestRepository, EventListController, EventDetailController, EventAddController) {
     //	/* modules */
     var Lafete = angular.module('lafete', ['ngRoute']);
     /* services */
@@ -9,10 +6,8 @@ define(["require", "exports", "../repository/eventRepository", "../repository/gu
     Lafete.service('GuestRepository', GuestRepository);
     /* controllers */
     Lafete.controller('EventListController', EventListController);
-    //EventDetailController.$inject = ['$scope', '$routeParams', 'EventRepository', 'GuestRepository'];
     Lafete.controller('EventDetailController', EventDetailController);
-    //EventAddController.$inject = ['$scope', 'EventRepository'];
-    //Lafete.controller('EventAddController', EventAddController);
+    Lafete.controller('EventAddController', EventAddController);
     /* routes */
     Lafete.config(function ($routeProvider) {
         $routeProvider.when('/list', {
@@ -26,6 +21,7 @@ define(["require", "exports", "../repository/eventRepository", "../repository/gu
             templateUrl: './views/event/detail.html'
         })
             .when('/add/event', {
+            controllerAs: 'scope',
             controller: 'EventAddController',
             templateUrl: './views/event/add.html'
         })

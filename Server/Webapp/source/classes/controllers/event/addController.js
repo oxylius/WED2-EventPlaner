@@ -1,29 +1,19 @@
-﻿define(['app/model/event'], function (Event) {
-    'use strict';
-
-    var EventAddController = function($scope, $log, $routeParams, EventRepository) {
-        this.scope = $scope;
-        this.scope.editMode = false;
-        if ($routeParams.eventId != null) {
-            this.scope.editMode = true;
-            EventRepository.get($routeParams.eventId, function (event) {
-                this.scope.event = event;
-            }.bind(this));
-        } else {
-            this.scope.event = new Event();
+define(["require", "exports", "../../model/event"], function (require, exports, Event) {
+    var EventAddController = (function () {
+        function EventAddController(scope, eventRepository) {
+            this.scope = scope;
+            this.eventRepository = eventRepository;
+            this.event = new Event();
+            this.editMode = false;
         }
-        this.scope.addEvent = function(event) {
-            $log.log(event);
-            EventRepository.add(event, function (createdEvent) {
-                $log.info("Event created!");
-            })
-        }
-        this.scope.editEvent = function(event) {
-            EventRepository.edit(event, function (editedEvent) {
-                $log.info("Event " + editedEvent.id + " edited!");
-            })
-        }
-    }
-
+        EventAddController.prototype.addEvent = function (event) {
+            this.eventRepository.add(event);
+        };
+        EventAddController.$inject = [
+            '$scope',
+            'EventRepository'
+        ];
+        return EventAddController;
+    })();
     return EventAddController;
-})
+});

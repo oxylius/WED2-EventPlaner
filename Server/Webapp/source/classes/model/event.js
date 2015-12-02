@@ -2,6 +2,10 @@
 define(["require", "exports", "../services/uuidService"], function (require, exports, UuidService) {
     var Event = (function () {
         function Event(name, targetGroup, location, maximalAmountOfGuests, eventGift, description, id, times) {
+            if (name === void 0) { name = ""; }
+            if (targetGroup === void 0) { targetGroup = ""; }
+            if (location === void 0) { location = ""; }
+            if (maximalAmountOfGuests === void 0) { maximalAmountOfGuests = 0; }
             if (eventGift === void 0) { eventGift = ""; }
             if (description === void 0) { description = ""; }
             if (id === void 0) { id = null; }
