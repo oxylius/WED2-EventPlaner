@@ -33,7 +33,7 @@ define(['app/model/guest'], function(Guest) {
 		// * @param string identifier
 		// */
 	    //this.get = function (event, successCallback) {
-	    //    $http.get(this.urls.get.replace(':eventId', event))
+	    //    $http.get(this.urls.get.replace('{eventId}', event))
 		//			.success(function (eventDTO) {
 		//			    successCallback(Event.createFromDTO(eventDTO));
 		//			});

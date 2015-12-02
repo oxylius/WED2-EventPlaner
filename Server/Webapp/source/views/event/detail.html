@@ -1,4 +1,11 @@
-<h2 class="h2-responsive">{{event.name}}</h2>
+<nav>
+    <ul class="pagination pagination-lg">
+        <li><a href="#/list"><i class="mdi mdi-home"></i></a></li>
+    </ul>
+</nav>
+
+
+<h2 class="h2-responsive">{{event.name}} <a class="btn-floating btn-large waves-effect waves-light red animated zoomIn" href="#/edit/event/{{event.id}}"><i class="material-icons">edit</i></a></h2>
 <p>{{event.description}}</p>
 <p data-ng-if="event.maximalAmoutOfGuests">
 	<strong>Maximal amount of guests:</strong>
@@ -21,7 +28,7 @@
 <h3><i class="mdi mdi-calendar-clock"></i>Date &amp; time</h3>
 <p>{{event.begin | date:"dd.MM.yy HH:mm"}} - {{event.end | date:"dd.MM.yy HH:mm"}}</p>
 
-<h3 class="h3-responsive"><span class="label primary-color">{{guests.length}}</span> Guests</h3>
+<h3 class="h3-responsive"><span class="label primary-color">{{guests.length}}</span> Guests <a class="btn-floating btn-large waves-effect waves-light red animated zoomIn" href="#/add/guest"><i class="material-icons">add</i></a></h3>
 <ul>
     <li data-ng-repeat="guest in guests"><p>{{guest.name}}<button type="button" class="btn btn-xs btn-info"><i class="mdi mdi-pencil"></i></button><button type="button" class="btn btn-danger btn-xs"><i class="mdi mdi-delete"></i></button></p></li>
     <li ng-hide="guests.length">No Guests<i class="mdi mdi-emoticon-sad"></i></li>
