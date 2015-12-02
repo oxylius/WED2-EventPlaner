@@ -40,6 +40,12 @@ class EventRepository {
             resolve(this.$http.post(this.urls.add, event));
         });
     }
+
+    edit(event: Event): IPromise<Event> {
+        return this.$q((resolve) => {
+            resolve(this.$http.post(this.urls.edit.replace(':eventId', event.id), event)));
+        }
+    }
 }
 
 export = EventRepository;

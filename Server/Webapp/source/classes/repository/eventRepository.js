@@ -29,6 +29,12 @@ define(["require", "exports"], function (require, exports) {
                 resolve(_this.$http.post(_this.urls.add, event));
             });
         };
+        EventRepository.prototype.edit = function (event) {
+            var _this = this;
+            return this.$q(function (resolve) {
+                resolve(_this.$http.post(_this.urls.edit.replace(':eventId', event.id), event));
+            });
+        };
         EventRepository.$inject = [
             '$http',
             '$q'

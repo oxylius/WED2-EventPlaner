@@ -25,6 +25,11 @@ define(["require", "exports", "../repository/eventRepository", "../repository/gu
             controller: 'EventAddController',
             templateUrl: './views/event/add.html'
         })
+            .when('/edit/event/:eventId', {
+            controllerAs: 'scope',
+            controller: 'EventAddController',
+            templateUrl: './views/event/add.html'
+        })
             .otherwise({
             redirectTo: '/list'
         });
