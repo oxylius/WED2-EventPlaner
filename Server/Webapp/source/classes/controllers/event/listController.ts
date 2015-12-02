@@ -1,13 +1,22 @@
-///<reference path="../../../typings/tsd.d.ts"/>
+import Scope = angular.IScope;
 
 import Event = require("../../model/event");
-import EventRepository = require("");
+import EventRepository = require("../../repository/eventRepository");
 
 class EventListController {
-    private events : Array<Event>;
-    constructor(eventRepository : EventRepository) {
-        eventRepository.all().then(data => {
-            this.events = data;
+    static $inject = [
+        '$scope',
+        'EventRepository'
+    ];
+
+    private events: Array<Event>;
+    
+    constructor(private scope: Scope, private eventRepository: EventRepository) {
+        this.events = [];
+        eventRepository.all().then((promise) => {
+            promise.data.events.forEach((eventDto: any) => {
+                this.events.push(Event.createFromDTO(eventDto));
+            });
         });
     }
 }

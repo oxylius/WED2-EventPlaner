@@ -36,7 +36,7 @@ define(["require", "exports", "../services/uuidService"], function (require, exp
             enumerable: true,
             configurable: true
         });
-        Event.prototype.createFromDTO = function (jsonData) {
+        Event.createFromDTO = function (jsonData) {
             return new Event(jsonData.name, jsonData.targetGroup, jsonData.location, jsonData.maximalAmountOfGuests, jsonData.eventGift, jsonData.description, jsonData.id, jsonData.times);
         };
         return Event;

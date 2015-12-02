@@ -1,51 +1,53 @@
 ///<reference path="../../typings/tsd.d.ts"/>
+import IRouteProvider = angular.route.IRouteProvider;
 
-import EventListController = require("");
-class Lafete {
-    
-}
+//import Event = require("../model/event");
+//import Guest = require("../model/guest");
+import EventRepository = require("../repository/eventRepository");
+import GuestRepository = require("../repository/guestRepository ");
+import EventListController = require("../controllers/event/listController");
+import EventDetailController = require("../controllers/event/detailController");
 
-define(['frameworks/angular', 'app/controllers/event/listController', 'app/controllers/event/detailController', 'app/controllers/event/addController', 'app/repository/eventRepository', 'app/repository/guestRepository', 'libraries/angularRoute'],
-	function (Angular, EventListController, EventDetailController, EventAddController, EventRepository, GuestRepository) {
-	'use strict';
 
-	/* modules */
-	var Lafete = Angular.module('lafete',['ngRoute']);
+//define(['frameworks/angular', 'app/controllers/event/listController', 'app/controllers/event/detailController', 'app/controllers/event/addController', 'app/repository/eventRepository', 'app/repository/guestRepository', 'libraries/angularRoute'],
+//	function (Angular, EventListController, EventDetailController, EventAddController, EventRepository, GuestRepository) {
+//	'use strict';
 
-	/* services */
-	EventRepository.$inject = ['$http'];
-	GuestRepository.$inject = ['$http'];
-	Lafete.service('EventRepository', EventRepository);
-	Lafete.service('GuestRepository', GuestRepository);
+//	/* modules */
+var Lafete = angular.module('lafete',['ngRoute']);
 
-	/* controllers */
-	EventListController.$inject = ['$scope', 'EventRepository'];
-	Lafete.controller('EventListController', EventListController);
+/* services */
+Lafete.service('EventRepository', EventRepository);
+Lafete.service('GuestRepository', GuestRepository);
 
-	EventDetailController.$inject = ['$scope', '$routeParams', 'EventRepository', 'GuestRepository'];
-	Lafete.controller('EventDetailController', EventDetailController);
+/* controllers */
+Lafete.controller('EventListController', EventListController);
 
-	EventAddController.$inject = ['$scope', 'EventRepository'];
-	Lafete.controller('EventAddController', EventAddController);
+//EventDetailController.$inject = ['$scope', '$routeParams', 'EventRepository', 'GuestRepository'];
+Lafete.controller('EventDetailController', EventDetailController);
 
-	/* routes */
-	Lafete.config(function($routeProvider) {
-		$routeProvider.when('/list', {
-			controller: 'EventListController',
-			templateUrl: './views/event/list.html'
-		})
-		.when('/events/:eventId', {
-			controller: 'EventDetailController',
-			templateUrl: './views/event/detail.html'
-		})
-        .when('/add/event', {
-            controller: 'EventAddController',
-            templateUrl: './views/event/add.html'
-        })
-		.otherwise({
-			redirectTo: '/list'
-		});
+//EventAddController.$inject = ['$scope', 'EventRepository'];
+//Lafete.controller('EventAddController', EventAddController);
+
+/* routes */
+Lafete.config(function($routeProvider: IRouteProvider) {
+    $routeProvider.when('/list', {
+        controllerAs: 'scope',
+		controller: 'EventListController',
+		templateUrl: './views/event/list.html'
+	})
+	.when('/events/:eventId', {
+        controllerAs: 'scope',
+		controller: 'EventDetailController',
+		templateUrl: './views/event/detail.html'
+	})
+    .when('/add/event', {
+        controller: 'EventAddController',
+        templateUrl: './views/event/add.html'
+    })
+	.otherwise({
+		redirectTo: '/list'
 	});
-
-	return Lafete;
 });
+
+export = Lafete;

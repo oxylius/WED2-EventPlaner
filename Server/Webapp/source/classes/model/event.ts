@@ -32,7 +32,7 @@ class Event {
         this.times.end = end;
     }
 
-    createFromDTO(jsonData: JSON): Event{
+    static createFromDTO(jsonData: any): Event {
         return new Event(
             jsonData.name,
             jsonData.targetGroup,

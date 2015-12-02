@@ -1,70 +1,70 @@
+///<reference path="../../typings/tsd.d.ts"/>
+
 import Event = require("../model/event");
 
+import HttpService = angular.IHttpService;
+import IQService = angular.IQService;
+import IPromise = angular.IPromise;
+
 class EventRepository {
-    
+    private urls :any = {
+        all: '/api/events',
+        get: '/api/events/:eventId',
+        add: '/api/events',
+        edit: '/api/events/:eventId'
+    }
+
+    static $inject = [
+        '$http',
+        '$q'
+    ];
+
+    constructor(private $http: HttpService, private $q: IQService) {
+    }
+
+    all(): IPromise<Array<Event>> {
+        return this.$q((resolve) => {
+            resolve(this.$http.get(this.urls.all));
+        });
+
+    } 
+
+    get(event: string): IPromise<Event> {
+        return this.$q((resolve) => {
+            resolve(this.$http.get(this.urls.get.replace(':eventId', event)));
+        });
+    }
 }
 
 export = EventRepository;
-define(['app/model/event'], function (Event) {
-	'use strict';
-
-	var EventRepository = function ($http) {
-	    this.urls = {
-	        all: '/api/events',
-	        get: '/api/events/:eventId',
-	        add: '/api/events',
-            edit: '/api/events/:eventId'
-	    };
-
-	    this.events = [];
 
 
-	    /**
-		 * Get all events
-		 *
-		 * @return Event[]
-		 */
-	    this.all = function (successCallback) {
-	        $http.get(this.urls.all)
-				.success(function (data) {
-				    // map applys a function on every element in the array and returns the result as new array
-				    var events = data.events.map(function (eventDTO) {
-				        return Event.createFromDTO(eventDTO);
-				    });
-				    successCallback(events);
-				});
-	    };
-	    /**
-		 * Find event by identifier
-		 *
-		 * @param string identifier
-		 */
-	    this.get = function (event, successCallback) {
-	        $http.get(this.urls.get.replace(':eventId', event))
-					.success(function (eventDTO) {
-					    successCallback(Event.createFromDTO(eventDTO));
-					});
-	    };
+///**
+//		 * Find event by identifier
+//		 *
+//		 * @param string identifier
+//		 */
+//this.get = function (event, successCallback) {
+//    $http.get(this.urls.get.replace(':eventId', event))
+//        .success(function (eventDTO) {
+//            successCallback(Event.createFromDTO(eventDTO));
+//        });
+//};
 
-	    /**
-		 * Add event
-		 * @param Event event
-		 */
-	    this.add = function (event, successCallback) {
-	        $http.post(this.urls.add, event)
-					.success(function (eventDTO) {
-					    successCallback(Event.createFromDTO(eventDTO));
-					});
-	    };
+///**
+// * Add event
+// * @param Event event
+// */
+//this.add = function (event, successCallback) {
+//    $http.post(this.urls.add, event)
+//        .success(function (eventDTO) {
+//            successCallback(Event.createFromDTO(eventDTO));
+//        });
+//};
 
-	    this.edit = function (event, successCallback) {
-	        $http.post(this.urls.edit.replace(':eventId', event.id), event)
-					.success(function (eventDTO) {
-					    successCallback(Event.createFromDTO(eventDTO));
-					});
-	    };
-
-	};
-
-	return EventRepository;
-});
+//this.edit = function (event, successCallback) {
+//    $http.post(this.urls.edit.replace(':eventId', event.id), event)
+//        .success(function (eventDTO) {
+//            successCallback(Event.createFromDTO(eventDTO));
+//        });
+};
