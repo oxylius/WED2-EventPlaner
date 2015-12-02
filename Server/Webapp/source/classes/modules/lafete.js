@@ -1,5 +1,5 @@
-define(['frameworks/angular', 'app/controllers/event/listController', 'app/controllers/event/detailController', 'app/controllers/event/addController', 'app/repository/eventRepository', 'app/repository/guestRepository', 'libraries/angularRoute'],
-	function (Angular, EventListController, EventDetailController, EventAddController, EventRepository, GuestRepository) {
+define(['frameworks/angular', 'app/controllers/event/listController', 'app/controllers/event/detailController', 'app/controllers/event/addController', 'app/controllers/guest/editController', 'app/repository/eventRepository', 'app/repository/guestRepository', 'libraries/angularRoute'],
+	function (Angular, EventListController, EventDetailController, EventAddController, GuestEditController, EventRepository, GuestRepository) {
 	'use strict';
 
 	/* modules */
@@ -21,6 +21,9 @@ define(['frameworks/angular', 'app/controllers/event/listController', 'app/contr
 	EventAddController.$inject = ['$scope', '$log', '$routeParams', 'EventRepository'];
 	Lafete.controller('EventAddController', EventAddController);
 
+	GuestEditController.$inject = ['$scope', '$log', '$routeParams', 'GuestRepository'];
+	Lafete.controller('GuestEditController', GuestEditController);
+
 	/* routes */
 	Lafete.config(function($routeProvider) {
 		$routeProvider.when('/list', {
@@ -38,6 +41,10 @@ define(['frameworks/angular', 'app/controllers/event/listController', 'app/contr
         .when('/edit/event/:eventId', {
             controller: 'EventAddController',
             templateUrl: './views/event/add.html'
+        })
+        .when('/events/:eventId/add/guest', {
+            contorller: 'GuestEditController',
+            templateUrl: './views/guest/edit.html'
         })
 		.otherwise({
 			redirectTo: '/list'

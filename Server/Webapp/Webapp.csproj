@@ -65,6 +65,7 @@
     <Content Include="source\classes\controllers\event\addController.js" />
     <Content Include="source\classes\controllers\event\detailController.js" />
     <Content Include="source\classes\controllers\event\listController.js" />
+    <Content Include="source\classes\controllers\guest\editController.js" />
     <Content Include="source\classes\main.js" />
     <Content Include="source\classes\model\event.js" />
     <Content Include="source\classes\model\guest.js" />
@@ -91,6 +92,7 @@
     <Content Include="source\views\event\add.html" />
     <Content Include="source\views\event\detail.html" />
     <Content Include="source\views\event\list.html" />
+    <Content Include="source\views\guest\edit.html" />
     <Content Include="tests\classes\controllers\eventListControllerTest.js" />
     <Content Include="tests\classes\factories\eventFactory.js" />
     <Content Include="tests\classes\model\eventTest.js" />

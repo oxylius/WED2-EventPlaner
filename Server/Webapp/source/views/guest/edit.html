@@ -1,0 +1,31 @@
+﻿<nav>
+    <ul class="pagination pagination-lg">
+        <li><a href="#/list"><i class="mdi mdi-home"></i></a></li>
+    </ul>
+</nav>
+
+<h2 class="h2-responsive center-on-small-only">{{editMode?'Edit Guest':'Add Guest'}}</h2>
+<div class="row">
+    <div class="input-field center-on-small-only">
+        <input id="name" placeholder="Event Name" type="text" class="validate" data-ng-model="guest.name">
+    </div>
+</div>
+<div class="row">
+    <div class="input-field center-on-small-only">
+        <i class="material-icons prefix">info</i>
+        <input id="description" placeholder="Description" type="text" class="validate" data-ng-model="guest.contribution">
+    </div>
+</div>
+<div class="row">
+    <div class="input-field center-on-small-only">
+        <i class="mdi mdi-target prefix"></i>
+        <input id="targetGroup" placeholder="Target Group" type="text" class="validate" data-ng-model="guest.comment">
+    </div>
+</div>
+<div class="row" data-ng-switch on="editMode">
+    <a data-ng-switch-when="false" class="btn-floating btn-large waves-effect waves-light red animated zoomIn" data-ng-click="addEvent(event)"><i class="material-icons">add</i></a>
+    <a data-ng-switch-when="true" class="btn-floating btn-large waves-effect waves-light red animated zoomIn" data-ng-click="editEvent(event)"><i class="material-icons">save</i></a>
+</div>
+<div class="panel panel-default">
+    <div class="panel-body">{{guest}}{{$routeParams}}</div>
+</div>
