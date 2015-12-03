@@ -7,16 +7,12 @@
 
 <h2 class="h2-responsive">{{scope.event.name}} <a class="btn-floating btn-large waves-effect waves-light red animated zoomIn" href="#/edit/event/{{scope.event.id}}"><i class="material-icons">edit</i></a></h2>
 <p>{{scope.event.description}}</p>
-<p data-ng-if="event.maximalAmoutOfGuests">
-	<strong>Maximal amount of guests:</strong>
-	{{scope.event.maximalAmoutOfGuests}}
-</p>
 
-<h3 data-ng-if="event.targetGroup"><i class="mdi mdi-target"></i>Target group</h3>
-<p data-ng-if="event.targetGroup">{{scope.event.targetGroup}}</p>
+<h3 data-ng-if="scope.event.targetGroup"><i class="mdi mdi-target"></i>Target group</h3>
+<p data-ng-if="scope.event.targetGroup">{{scope.event.targetGroup}}</p>
 
-<h3 data-ng-if="event.eventGift">Event gift</h3>
-<p data-ng-if="event.eventGift">{{scope.event.eventGift}}</p>
+<h3 data-ng-if="scope.event.eventGift">Event gift</h3>
+<p data-ng-if="scope.event.eventGift">{{scope.event.eventGift}}</p>
 
 <h3><i class="mdi mdi-map-marker"></i>Location</h3>
 <p>
@@ -28,7 +24,8 @@
 <h3><i class="mdi mdi-calendar-clock"></i>Date &amp; time</h3>
 <p>{{scope.event.begin | date:"dd.MM.yy HH:mm"}} - {{scope.event.end | date:"dd.MM.yy HH:mm"}}</p>
 
-<h3 class="h3-responsive"><span class="label primary-color">{{scope.guests.length}}</span> Guests <a class="btn-floating btn-large waves-effect waves-light red animated zoomIn" href="#/add/guest"><i class="material-icons">add</i></a></h3>
+<h3 class="" data-ng-show="scope.event.maximalAmountOfGuests == ''"><span class="label label-primary">{{scope.guests.length}}</span> Guests <a class="btn-floating btn-large waves-effect waves-light red animated zoomIn" href="#/add/guest"><i class="mdi mdi-account-plus"></i></a></h3>
+<h3 class="" data-ng-show="scope.event.maximalAmountOfGuests > 0"><span class="label {{scope.guests.length < scope.event.maximalAmountOfGuests?'label-primary':'label-danger'}}">{{scope.guests.length}}/{{scope.event.maximalAmountOfGuests}}</span> Guests <a data-ng-show="scope.guests.length < scope.event.maximalAmountOfGuests" class="btn-floating btn-large waves-effect waves-light red animated zoomIn" href="#/add/guest"><i class="material-icons">add</i></a></h3>
 <ul>
     <li data-ng-repeat="guest in scope.guests"><p>{{guest.name}}<button type="button" class="btn btn-xs btn-info"><i class="mdi mdi-pencil"></i></button><button type="button" class="btn btn-danger btn-xs"><i class="mdi mdi-delete"></i></button></p></li>
     <li ng-hide="scope.guests.length">No Guests<i class="mdi mdi-emoticon-sad"></i></li>

@@ -43,8 +43,8 @@ class EventRepository {
 
     edit(event: Event): IPromise<Event> {
         return this.$q((resolve) => {
-            resolve(this.$http.post(this.urls.edit.replace(':eventId', event.id), event)));
-        }
+            resolve(this.$http.post(this.urls.edit.replace(':eventId', event.id), event));
+        });
     }
 }
 

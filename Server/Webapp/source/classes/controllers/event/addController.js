@@ -17,10 +17,12 @@ define(["require", "exports", "../../model/event"], function (require, exports, 
             }
         }
         EventAddController.prototype.addEvent = function (event) {
+            console.log("ADD EVENT:");
+            console.log(event);
             this.eventRepository.add(event);
         };
         EventAddController.prototype.editEvent = function (event) {
-            this.eventRepository.edit(event);
+            console.log(this.eventRepository.edit(event));
         };
         EventAddController.$inject = [
             '$scope',

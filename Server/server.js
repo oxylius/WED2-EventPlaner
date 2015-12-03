@@ -19,12 +19,13 @@ var eventId = 0;
 var guestId = 0;
 var events = [];
 
-function createEvent(id, name, description, targetGroup, contributionsDescription, location, times){
+function createEvent(id, name, description, maximalAmountOfGuests, targetGroup, contributionsDescription, location, times){
     if(name) {
         var event = {
             id: (id) ? id : ++eventId,
             name : name,
             description : description,
+            maximalAmountOfGuests : maximalAmountOfGuests,
             targetGroup: targetGroup,
             contributionsDescription: contributionsDescription,
             location:location,
@@ -74,6 +75,7 @@ var event1 = createEvent(
     null,
     "HSR-Party",
     "Party an der HSR",
+    "",
     "Studenten",
     "Kuchen",
     {
@@ -94,6 +96,7 @@ var event2 = createEvent(
     null,
     "Dinner",
     "Mitarbeiterdinner der HSR",
+    "",
     "HSR Mitarbeiter",
     null,
     {
@@ -136,6 +139,7 @@ app.post('/api/events', function(request, response) {
        request.body.id,
        request.body.name,
        request.body.description,
+       request.body.maximalAmountOfGuests,
        request.body.targetGroup,
        request.body.contributionsDescription,
        request.body.location,
@@ -165,7 +169,10 @@ app.post('/api/events/:id', function(request, response) {
 		}
 		if(request.body.description && request.body.description != event.description) {
 			event.description = request.body.description;
-		}
+        }
+        if (request.body.maximalAmountOfGuests && request.body.maximalAmountOfGuests != event.maximalAmountOfGuests) {
+            event.maximalAmountOfGuests = request.body.maximalAmountOfGuests;
+        }
 		if(request.body.targetGroup && event.targetGroup != request.body.targetGroup) {
 			event.targetGroup = request.body.targetGroup;
 		}

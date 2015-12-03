@@ -17,7 +17,7 @@ class EventAddController {
     constructor(private scope: Scope, private routeParams: RouteParams, private eventRepository: EventRepository) {
         this.editMode = false;
         if (this.routeParams.eventId != null) {
-            this.editMode = true
+            this.editMode = true;
             this.eventRepository.get(this.routeParams.eventId).then((promise) => {
                 this.event = Event.createFromDTO(promise.data);
             });
@@ -26,12 +26,14 @@ class EventAddController {
         }
     }
 
-    addEvent(event:Event): void {
+    addEvent(event: Event): void {
+        console.log("ADD EVENT:");
+        console.log(event);
         this.eventRepository.add(event);
     }
 
     editEvent(event: Event): void {
-        this.eventRepository.edit(event);
+        console.log(this.eventRepository.edit(event));
     }
 }
 

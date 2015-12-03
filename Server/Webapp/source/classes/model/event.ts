@@ -7,11 +7,11 @@ class Event {
         public name: string = "",
         public targetGroup: string = "",
         public location: string = "",
-        public maximalAmountOfGuests: number = 0,
+        public maximalAmountOfGuests: number = null,
         public eventGift: string = "",
         public description: string = "",
         public id: string = null,
-        public times : any = null) {
+        public times : any = {begin: "", end: ""}) {
         this.id = id || UuidService.getRandomUuid();
 
     }
