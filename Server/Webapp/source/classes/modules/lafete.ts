@@ -22,30 +22,30 @@ Lafete.controller('EventDetailController', EventDetailController);
 Lafete.controller('EventAddController', EventAddController);
 
 /* routes */
-Lafete.config(function($routeProvider: IRouteProvider) {
+Lafete.config(($routeProvider: IRouteProvider) => {
     $routeProvider.when('/list', {
-        controllerAs: 'scope',
-		controller: 'EventListController',
-		templateUrl: './views/event/list.html'
-	})
-	.when('/events/:eventId', {
-        controllerAs: 'scope',
-		controller: 'EventDetailController',
-		templateUrl: './views/event/detail.html'
-	})
-    .when('/add/event', {
-        controllerAs: 'scope',
-        controller: 'EventAddController',
-        templateUrl: './views/event/add.html'
-    })
-    .when('/edit/event/:eventId', {
-        controllerAs: 'scope',
-        controller: 'EventAddController',
-        templateUrl: './views/event/add.html'
-    })
-	.otherwise({
-		redirectTo: '/list'
-	});
+            controllerAs: 'scope',
+            controller: 'EventListController',
+            templateUrl: './views/event/list.html'
+        })
+        .when('/events/:eventId', {
+            controllerAs: 'scope',
+            controller: 'EventDetailController',
+            templateUrl: './views/event/detail.html'
+        })
+        .when('/add/event', {
+            controllerAs: 'scope',
+            controller: 'EventAddController',
+            templateUrl: './views/event/add.html'
+        })
+        .when('/edit/event/:eventId', {
+            controllerAs: 'scope',
+            controller: 'EventAddController',
+            templateUrl: './views/event/add.html'
+        })
+        .otherwise({
+            redirectTo: '/list'
+        });
 });
 
 export = Lafete;

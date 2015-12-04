@@ -2,34 +2,21 @@
 
 import UuidService = require("../services/uuidService");
 
+import Location = require("./location");
+import Times = require("./Times");
+
 class Event {
     constructor(
         public name: string = "",
         public targetGroup: string = "",
-        public location: string = "",
+        public location: Location = new Location(),
         public maximalAmountOfGuests: number = null,
         public eventGift: string = "",
         public description: string = "",
         public id: string = null,
-        public times : any = {begin: "", end: ""}) {
+        public times : Times = new Times()) {
         this.id = id || UuidService.getRandomUuid();
 
-    }
-
-    get begin(): any {
-        return this.times.begin;
-    }
-
-    set begin(begin: any) {
-        this.times.begin = begin;
-    }
-
-    get end(): any {
-        return this.times.end;
-    }
-
-    set end(end: any) {
-        this.times.end = end;
     }
 
     static createFromDTO(jsonData: any): Event {

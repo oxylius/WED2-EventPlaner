@@ -1,15 +1,15 @@
 ///<reference path="../../typings/tsd.d.ts"/>
-define(["require", "exports", "../services/uuidService"], function (require, exports, UuidService) {
+define(["require", "exports", "../services/uuidService", "./location", "./Times"], function (require, exports, UuidService, Location, Times) {
     var Event = (function () {
         function Event(name, targetGroup, location, maximalAmountOfGuests, eventGift, description, id, times) {
             if (name === void 0) { name = ""; }
             if (targetGroup === void 0) { targetGroup = ""; }
-            if (location === void 0) { location = ""; }
+            if (location === void 0) { location = new Location(); }
             if (maximalAmountOfGuests === void 0) { maximalAmountOfGuests = null; }
             if (eventGift === void 0) { eventGift = ""; }
             if (description === void 0) { description = ""; }
             if (id === void 0) { id = null; }
-            if (times === void 0) { times = { begin: "", end: "" }; }
+            if (times === void 0) { times = new Times(); }
             this.name = name;
             this.targetGroup = targetGroup;
             this.location = location;
@@ -20,26 +20,6 @@ define(["require", "exports", "../services/uuidService"], function (require, exp
             this.times = times;
             this.id = id || UuidService.getRandomUuid();
         }
-        Object.defineProperty(Event.prototype, "begin", {
-            get: function () {
-                return this.times.begin;
-            },
-            set: function (begin) {
-                this.times.begin = begin;
-            },
-            enumerable: true,
-            configurable: true
-        });
-        Object.defineProperty(Event.prototype, "end", {
-            get: function () {
-                return this.times.end;
-            },
-            set: function (end) {
-                this.times.end = end;
-            },
-            enumerable: true,
-            configurable: true
-        });
         Event.createFromDTO = function (jsonData) {
             return new Event(jsonData.name, jsonData.targetGroup, jsonData.location, jsonData.maximalAmountOfGuests, jsonData.eventGift, jsonData.description, jsonData.id, jsonData.times);
         };
