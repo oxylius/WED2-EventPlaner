@@ -20,11 +20,18 @@ class GuestRepository {
     constructor(private $http: HttpService, private $q: IQService) {
     }
 
-    all(event): IPromise<Array<Guest>> {
+    all(eventId): IPromise<Array<Guest>> {
         return this.$q((resolve) => {
-            resolve(this.$http.get(this.urls.all.replace(':eventId', event)));
+            resolve(this.$http.get(this.urls.all.replace(':eventId', eventId)));
         });
 
+    }
+    
+    delete(eventId, guest: Guest): IPromise<Guest> {
+        guest.canceled = true;
+        return this.$q((resolve) => {
+            resolve(this.$http.post(this.urls.update.replace(':eventId', eventId).replace(':guestId', guest.id), guest));
+        });
     } 
 }
 

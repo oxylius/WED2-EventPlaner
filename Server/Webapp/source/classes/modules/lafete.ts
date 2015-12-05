@@ -2,10 +2,11 @@
 import IRouteProvider = angular.route.IRouteProvider;
 
 import EventRepository = require("../repository/eventRepository");
-import GuestRepository = require("../repository/guestRepository ");
+import GuestRepository = require("../repository/guestRepository");
 import EventListController = require("../controllers/event/listController");
 import EventDetailController = require("../controllers/event/detailController");
 import EventAddController = require("../controllers/event/addController");
+import GuestController = require("../controllers/guest/editController");
 
 
 
@@ -20,6 +21,7 @@ Lafete.service('GuestRepository', GuestRepository);
 Lafete.controller('EventListController', EventListController);
 Lafete.controller('EventDetailController', EventDetailController);
 Lafete.controller('EventAddController', EventAddController);
+Lafete.controller('GuestController', GuestController);
 
 /* routes */
 Lafete.config(($routeProvider: IRouteProvider) => {

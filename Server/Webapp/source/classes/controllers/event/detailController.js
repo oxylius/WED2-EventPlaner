@@ -1,4 +1,4 @@
-define(["require", "exports", "../../model/event", "../../model/guest"], function (require, exports, Event, Guest) {
+define(["require", "exports", "../../model/event"], function (require, exports, Event) {
     var DetailController = (function () {
         function DetailController(scope, routeParams, eventRepository, guestRepository) {
             var _this = this;
@@ -6,16 +6,16 @@ define(["require", "exports", "../../model/event", "../../model/guest"], functio
             this.routeParams = routeParams;
             this.eventRepository = eventRepository;
             this.guestRepository = guestRepository;
-            this.guests = [];
             eventRepository.get(this.routeParams.eventId).then(function (promise) {
                 _this.event = Event.createFromDTO(promise.data);
             });
-            guestRepository.all(this.routeParams.eventId).then(function (promise) {
-                promise.data.guests.forEach(function (guestDto) {
-                    _this.guests.push(Guest.createFromDto(guestDto));
-                });
-            });
+            //guestRepository.all(this.routeParams.eventId).then((promise) => {
+            //    promise.data.guests.forEach((guestDto: any) => {
+            //        this.guests.push(Guest.createFromDto(guestDto));
+            //    });
+            //});
         }
+        //private guests: Array<Guest> = [];
         DetailController.$inject = [
             '$scope',
             '$routeParams',

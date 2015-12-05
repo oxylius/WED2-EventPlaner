@@ -5,11 +5,11 @@ import Event = require("../../model/event");
 import Guest = require("../../model/guest");
 
 import EventRepository = require("../../repository/eventRepository");
-import GuestRepository = require("../../repository/guestRepository ");
+import GuestRepository = require("../../repository/guestRepository");
 
 class DetailController {
     private event: Event;
-    private guests: Array<Guest> = [];
+    //private guests: Array<Guest> = [];
 
     static $inject = [
         '$scope',
@@ -22,11 +22,11 @@ class DetailController {
         eventRepository.get(this.routeParams.eventId).then((promise) => {
             this.event = Event.createFromDTO(promise.data);
         });
-        guestRepository.all(this.routeParams.eventId).then((promise) => {
-            promise.data.guests.forEach((guestDto: any) => {
-                this.guests.push(Guest.createFromDto(guestDto));
-            });
-        });
+        //guestRepository.all(this.routeParams.eventId).then((promise) => {
+        //    promise.data.guests.forEach((guestDto: any) => {
+        //        this.guests.push(Guest.createFromDto(guestDto));
+        //    });
+        //});
     }
 }
 

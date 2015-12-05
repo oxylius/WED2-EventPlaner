@@ -1,4 +1,4 @@
-define(["require", "exports", "../repository/eventRepository", "../repository/guestRepository ", "../controllers/event/listController", "../controllers/event/detailController", "../controllers/event/addController"], function (require, exports, EventRepository, GuestRepository, EventListController, EventDetailController, EventAddController) {
+define(["require", "exports", "../repository/eventRepository", "../repository/guestRepository", "../controllers/event/listController", "../controllers/event/detailController", "../controllers/event/addController", "../controllers/guest/editController"], function (require, exports, EventRepository, GuestRepository, EventListController, EventDetailController, EventAddController, GuestController) {
     //	/* modules */
     var Lafete = angular.module('lafete', ['ngRoute']);
     /* services */
@@ -8,6 +8,7 @@ define(["require", "exports", "../repository/eventRepository", "../repository/gu
     Lafete.controller('EventListController', EventListController);
     Lafete.controller('EventDetailController', EventDetailController);
     Lafete.controller('EventAddController', EventAddController);
+    Lafete.controller('GuestController', GuestController);
     /* routes */
     Lafete.config(function ($routeProvider) {
         $routeProvider.when('/list', {
