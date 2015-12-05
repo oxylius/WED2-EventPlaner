@@ -21,19 +21,26 @@ class GuestController {
             });
         });
     }
+    add(): void {
+        this.guests.push(new Guest());
+    }
 
     delete(guest: Guest): void {
         this.guestRepository.delete(this.routeParams.eventId, guest).then((promise) => {
             this.findGuest(guest.id).canceled = true;
-            console.log('deleted Guest: ' + promise.data);
+            console.log('deleted Guest: ' + promise.data.guest);
         });
     }
 
     findGuest(id) {
-    return this.guests.filter(function (guest) {
-        return guest.id == id;
-    })[0];
-}
+        return this.guests.filter(function(guest) {
+            return guest.id == id;
+        })[0];
+    }
+
+    toggleEditMode(guest: Guest): void {
+        this.findGuest(guest.id).editMode = !this.findGuest(guest.id).editMode;
+    }
 }
 
 export = GuestController;

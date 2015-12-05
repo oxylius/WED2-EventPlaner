@@ -12,17 +12,23 @@ define(["require", "exports", "../../model/guest"], function (require, exports, 
                 });
             });
         }
+        GuestController.prototype.add = function () {
+            this.guests.push(new Guest());
+        };
         GuestController.prototype.delete = function (guest) {
             var _this = this;
             this.guestRepository.delete(this.routeParams.eventId, guest).then(function (promise) {
                 _this.findGuest(guest.id).canceled = true;
-                console.log('deleted Guest: ' + promise.data);
+                console.log('deleted Guest: ' + promise.data.guest);
             });
         };
         GuestController.prototype.findGuest = function (id) {
             return this.guests.filter(function (guest) {
                 return guest.id == id;
             })[0];
+        };
+        GuestController.prototype.toggleEditMode = function (guest) {
+            this.findGuest(guest.id).editMode = !this.findGuest(guest.id).editMode;
         };
         GuestController.$inject = [
             '$scope',

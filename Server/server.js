@@ -52,7 +52,8 @@ function createGuest(event, id, name, contribution, comment){
             name : name,
             contribution: contribution,
             comment: comment,
-			canceled: false
+            canceled: false,
+            editMode: false
         };
         event.guests.push(guest);
         return guest;
