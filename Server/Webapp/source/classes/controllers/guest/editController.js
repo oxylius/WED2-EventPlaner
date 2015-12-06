@@ -13,7 +13,10 @@ define(["require", "exports", "../../model/guest"], function (require, exports, 
             });
         }
         GuestController.prototype.add = function () {
-            this.guests.push(new Guest());
+            var _this = this;
+            this.guestRepository.add(this.routeParams.eventId).then(function (promise) {
+                _this.guests.push(Guest.createFromDto(promise.data));
+            });
         };
         GuestController.prototype.delete = function (guest) {
             var _this = this;
@@ -29,6 +32,9 @@ define(["require", "exports", "../../model/guest"], function (require, exports, 
         };
         GuestController.prototype.toggleEditMode = function (guest) {
             this.findGuest(guest.id).editMode = !this.findGuest(guest.id).editMode;
+        };
+        GuestController.prototype.save = function (guest) {
+            this.guestRepository.update(this.routeParams.eventId, guest);
         };
         GuestController.$inject = [
             '$scope',

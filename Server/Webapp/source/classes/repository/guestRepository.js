@@ -16,6 +16,18 @@ define(["require", "exports"], function (require, exports) {
                 resolve(_this.$http.get(_this.urls.all.replace(':eventId', eventId)));
             });
         };
+        GuestRepository.prototype.add = function (eventId) {
+            var _this = this;
+            return this.$q(function (resolve) {
+                resolve(_this.$http.post(_this.urls.add.replace(':eventId', eventId), null));
+            });
+        };
+        GuestRepository.prototype.update = function (eventId, guest) {
+            var _this = this;
+            this.$q(function (resolve) {
+                resolve(_this.$http.post(_this.urls.update.replace(':eventId', eventId).replace(':guestId', guest.id), guest));
+            });
+        };
         GuestRepository.prototype.delete = function (eventId, guest) {
             var _this = this;
             guest.canceled = true;

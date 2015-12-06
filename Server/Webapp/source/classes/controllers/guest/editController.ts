@@ -22,7 +22,9 @@ class GuestController {
         });
     }
     add(): void {
-        this.guests.push(new Guest());
+        this.guestRepository.add(this.routeParams.eventId).then((promise) => {
+            this.guests.push(Guest.createFromDto(promise.data));
+        });
     }
 
     delete(guest: Guest): void {
@@ -41,6 +43,9 @@ class GuestController {
     toggleEditMode(guest: Guest): void {
         this.findGuest(guest.id).editMode = !this.findGuest(guest.id).editMode;
     }
-}
+
+    save(guest: Guest): void {
+        this.guestRepository.update(this.routeParams.eventId, guest);
+    }}
 
 export = GuestController;

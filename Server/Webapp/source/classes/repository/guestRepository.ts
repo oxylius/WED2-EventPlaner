@@ -26,7 +26,19 @@ class GuestRepository {
         });
 
     }
+
+    add(eventId): IPromise<Guest>{
+        return this.$q((resolve) => {
+            resolve(this.$http.post(this.urls.add.replace(':eventId', eventId), null));
+        });
+    }
     
+    update(eventId, guest: Guest): void {
+        this.$q((resolve) => {
+            resolve(this.$http.post(this.urls.update.replace(':eventId', eventId).replace(':guestId', guest.id), guest));
+        });
+    }
+
     delete(eventId, guest: Guest): IPromise<Guest> {
         guest.canceled = true;
         return this.$q((resolve) => {

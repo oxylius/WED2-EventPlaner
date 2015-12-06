@@ -197,3 +197,8 @@ margin-left: 7px;
 .btn-xs {
     @include button-size($padding-xs-vertical, $padding-xs-horizontal, $font-size-small, $line-height-small);
 }
+
+.btn-xs-guest {
+    margin: 0px;
+    @include button-size($padding-xs-vertical, $padding-xs-horizontal, $font-size-small, $line-height-small);
+}
