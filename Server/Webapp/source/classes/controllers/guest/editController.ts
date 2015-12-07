@@ -31,16 +31,16 @@ class GuestController {
 
     delete(guest: Guest): void {
         guest.canceled = true;
+        this.findGuest(guest.id).canceled = true;
         this.guestRepository.update(this.routeParams.eventId, guest).then((promise) => {
             this.findGuest(Guest.createFromDto(promise.data).id).canceled = true;
             console.log(Guest.createFromDto(promise.data));
+            console.log(this.guests);
         });
     }
 
     findGuest(id) {
-        return this.guests.filter(function(guest) {
-            return guest.id == id;
-        })[0];
+        return this.guests.filter(guest => (guest.id == id))[0];
     }
 
     toggleEditMode(guest: Guest): void {

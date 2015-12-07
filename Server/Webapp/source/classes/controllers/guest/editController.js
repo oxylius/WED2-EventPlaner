@@ -22,15 +22,15 @@ define(["require", "exports", "../../model/guest"], function (require, exports, 
         GuestController.prototype.delete = function (guest) {
             var _this = this;
             guest.canceled = true;
+            this.findGuest(guest.id).canceled = true;
             this.guestRepository.update(this.routeParams.eventId, guest).then(function (promise) {
                 _this.findGuest(Guest.createFromDto(promise.data).id).canceled = true;
                 console.log(Guest.createFromDto(promise.data));
+                console.log(_this.guests);
             });
         };
         GuestController.prototype.findGuest = function (id) {
-            return this.guests.filter(function (guest) {
-                return guest.id == id;
-            })[0];
+            return this.guests.filter(function (guest) { return (guest.id == id); })[0];
         };
         GuestController.prototype.toggleEditMode = function (guest) {
             this.findGuest(guest.id).editMode = !this.findGuest(guest.id).editMode;
