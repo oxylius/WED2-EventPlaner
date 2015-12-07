@@ -1,3 +1,4 @@
+///<reference path="../../typings/tsd.d.ts"/>
 define(["require", "exports"], function (require, exports) {
     var GuestRepository = (function () {
         function GuestRepository($http, $q) {
@@ -24,13 +25,6 @@ define(["require", "exports"], function (require, exports) {
         };
         GuestRepository.prototype.update = function (eventId, guest) {
             var _this = this;
-            this.$q(function (resolve) {
-                resolve(_this.$http.post(_this.urls.update.replace(':eventId', eventId).replace(':guestId', guest.id), guest));
-            });
-        };
-        GuestRepository.prototype.delete = function (eventId, guest) {
-            var _this = this;
-            guest.canceled = true;
             return this.$q(function (resolve) {
                 resolve(_this.$http.post(_this.urls.update.replace(':eventId', eventId).replace(':guestId', guest.id), guest));
             });

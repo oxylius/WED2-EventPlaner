@@ -1,3 +1,5 @@
+///<reference path="../../typings/tsd.d.ts"/>
+
 import Guest = require("../model/guest");
 
 import HttpService = angular.IHttpService;
@@ -33,18 +35,18 @@ class GuestRepository {
         });
     }
     
-    update(eventId, guest: Guest): void {
-        this.$q((resolve) => {
+    update(eventId, guest: Guest): IPromise<Guest> {
+        return this.$q((resolve) => {
             resolve(this.$http.post(this.urls.update.replace(':eventId', eventId).replace(':guestId', guest.id), guest));
         });
     }
 
-    delete(eventId, guest: Guest): IPromise<Guest> {
-        guest.canceled = true;
-        return this.$q((resolve) => {
-            resolve(this.$http.post(this.urls.update.replace(':eventId', eventId).replace(':guestId', guest.id), guest));
-        });
-    } 
+    //delete(eventId, guest: Guest): IPromise<Guest> {
+    //    guest.canceled = true;
+    //    return this.$q((resolve) => {
+    //        resolve(this.$http.post(this.urls.update.replace(':eventId', eventId).replace(':guestId', guest.id), guest));
+    //    });
+    //} 
 }
 
 export = GuestRepository;

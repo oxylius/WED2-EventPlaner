@@ -1,4 +1,6 @@
-﻿import Scope = angular.IScope;
+﻿///<reference path="../../../typings/tsd.d.ts"/>
+
+import Scope = angular.IScope;
 import RouteParams = angular.route.IRouteParamsService;
 
 import Guest = require("../../model/guest");
@@ -28,9 +30,10 @@ class GuestController {
     }
 
     delete(guest: Guest): void {
-        this.guestRepository.delete(this.routeParams.eventId, guest).then((promise) => {
-            this.findGuest(guest.id).canceled = true;
-            console.log('deleted Guest: ' + promise.data.guest);
+        guest.canceled = true;
+        this.guestRepository.update(this.routeParams.eventId, guest).then((promise) => {
+            this.findGuest(Guest.createFromDto(promise.data).id).canceled = true;
+            console.log(Guest.createFromDto(promise.data));
         });
     }
 

@@ -1,3 +1,4 @@
+///<reference path="../../../typings/tsd.d.ts"/>
 define(["require", "exports", "../../model/guest"], function (require, exports, Guest) {
     var GuestController = (function () {
         function GuestController(scope, routeParams, guestRepository) {
@@ -20,9 +21,10 @@ define(["require", "exports", "../../model/guest"], function (require, exports, 
         };
         GuestController.prototype.delete = function (guest) {
             var _this = this;
-            this.guestRepository.delete(this.routeParams.eventId, guest).then(function (promise) {
-                _this.findGuest(guest.id).canceled = true;
-                console.log('deleted Guest: ' + promise.data.guest);
+            guest.canceled = true;
+            this.guestRepository.update(this.routeParams.eventId, guest).then(function (promise) {
+                _this.findGuest(Guest.createFromDto(promise.data).id).canceled = true;
+                console.log(Guest.createFromDto(promise.data));
             });
         };
         GuestController.prototype.findGuest = function (id) {

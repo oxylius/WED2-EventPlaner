@@ -33,12 +33,12 @@
 <div data-ng-controller="GuestController as guestscope">
 <h3 class="" data-ng-show="scope.event.maximalAmountOfGuests == ''"><span class="label label-primary">{{filteredGuests.length}}</span> Guests <a class="btn-floating btn-large waves-effect waves-light red animated zoomIn" data-ng-click="guestscope.add()"><i class="mdi mdi-account-plus"></i></a></h3>
 <h3 class="" data-ng-show="scope.event.maximalAmountOfGuests > 0"><span class="label {{filteredGuests.length < scope.event.maximalAmountOfGuests?'label-primary':'label-danger'}}">{{filteredGuests.length}}/{{scope.event.maximalAmountOfGuests}}</span> Guests <a data-ng-show="scope.guests.length < scope.event.maximalAmountOfGuests" class="btn-floating btn-large waves-effect waves-light red animated zoomIn" href="#/add/guest"><i class="material-icons">add</i></a></h3>
-    <div class="row" data-ng-repeat="guest in filteredGuests = (guestscope.guests | filter:canceled == false)">
+    <div data-ng-repeat="guest in filteredGuests = (guestscope.guests | filter:canceled == false)">
         <div class="row">
-            <div class="center-on-small-only col-md-9 col-sm-8">
+            <div class="center-on-small-only col-xs-9">
                 <p>{{guest.name}} bringt {{guest.contribution}} <cite data-ng-show="guest.comment">"{{guest.comment}}"</cite></p>
             </div>
-            <div class="col-md-3 col-sm-4">
+            <div class="col-xs-3">
                 <button type="button" class="btn btn-xs-guest btn-info" data-ng-click="guestscope.toggleEditMode(guest)"><i class="mdi mdi-pencil"></i></button>
                 <button type="button" class="btn btn-danger btn-xs-guest" data-ng-click="guestscope.delete(guest)"><i class="mdi mdi-delete"></i></button>
                 <button type="button" class="btn btn-warning btn-xs-guest" data-ng-show="guest.editMode" data-ng-click="guestscope.save(guest)"><i class="material-icons">save</i></button>
