@@ -22,11 +22,11 @@
 </p>
 
 <h3><i class="mdi mdi-calendar-clock"></i>Date &amp; time</h3>
-<p>{{scope.event.begin | date:"dd.MM.yy HH:mm"}} - {{scope.event.end | date:"dd.MM.yy HH:mm"}}</p>
+<p>{{scope.event.times.begin | date:"dd.MM.yy HH:mm"}} - {{scope.event.times.end | date:"dd.MM.yy HH:mm"}}</p>
 
 <div data-ng-controller="GuestController as guestscope">
 <h3 class="" data-ng-show="scope.event.maximalAmountOfGuests == ''"><span class="label label-primary">{{filteredGuests.length}}</span> Guests <a class="btn-floating btn-large waves-effect waves-light red animated zoomIn" data-ng-click="guestscope.add()"><i class="mdi mdi-account-plus"></i></a></h3>
-<h3 class="" data-ng-show="scope.event.maximalAmountOfGuests > 0"><span class="label {{filteredGuests.length < scope.event.maximalAmountOfGuests?'label-primary':'label-danger'}}">{{filteredGuests.length}}/{{scope.event.maximalAmountOfGuests}}</span> Guests <a data-ng-show="scope.guests.length < scope.event.maximalAmountOfGuests" class="btn-floating btn-large waves-effect waves-light red animated zoomIn" href="#/add/guest"><i class="material-icons">add</i></a></h3>
+<h3 class="" data-ng-show="scope.event.maximalAmountOfGuests > 0"><span class="label {{filteredGuests.length < scope.event.maximalAmountOfGuests?'label-primary':'label-danger'}}">{{filteredGuests.length}}/{{scope.event.maximalAmountOfGuests}}</span> Guests <a data-ng-show="filteredGuests.length < scope.event.maximalAmountOfGuests" class="btn-floating btn-large waves-effect waves-light red animated zoomIn" data-ng-click="guestscope.add()"><i class="material-icons">add</i></a></h3>
     <div data-ng-repeat="guest in filteredGuests = (guestscope.guests | filter:{canceled: false})">
         <div class="row">
             <div class="center-on-small-only col-xs-9">
