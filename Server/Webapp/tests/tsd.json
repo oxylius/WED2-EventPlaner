@@ -10,6 +10,15 @@
     },
     "requirejs/require.d.ts": {
       "commit": "e5a27ea95e47b95333784f1f0d590127b4e39a89"
+    },
+    "angularjs/angular.d.ts": {
+      "commit": "5c3e47967affa3c4128a3875d1664ba206ae1b0f"
+    },
+    "jquery/jquery.d.ts": {
+      "commit": "5c3e47967affa3c4128a3875d1664ba206ae1b0f"
+    },
+    "angularjs/angular-mocks.d.ts": {
+      "commit": "5c3e47967affa3c4128a3875d1664ba206ae1b0f"
     }
   }
 }

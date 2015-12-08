@@ -5,73 +5,75 @@
 </nav>
 
 <h2 class="h2-responsive center-on-small-only">{{scope.editMode?'Edit Event':'Add Event'}}</h2>
-<div class="row">
-    <div class="input-field center-on-small-only">
-        <input id="name" placeholder="Event Name" type="text" class="validate" data-ng-model="scope.event.name">
+<form>
+    <div class="row">
+        <div class="input-field center-on-small-only">
+            <input id="name" required placeholder="Name" type="text" class="validate" data-ng-model="scope.event.name">
+        </div>
     </div>
-</div>
-<div class="row">
-    <div class="input-field center-on-small-only">
-        <i class="material-icons prefix">info</i>
-        <input id="description" placeholder="Description" type="text" class="validate" data-ng-model="scope.event.description">
+    <div class="row">
+        <div class="input-field center-on-small-only">
+            <i class="material-icons prefix">info</i>
+            <input id="description" placeholder="Description" type="text" class="validate" data-ng-model="scope.event.description">
+        </div>
     </div>
-</div>
-<div class="row">
-    <div class="input-field center-on-small-only">
-        <i class="mdi mdi-target prefix"></i>
-        <input id="targetGroup" placeholder="Target Group" type="text" class="validate" data-ng-model="scope.event.targetGroup">
+    <div class="row">
+        <div class="input-field center-on-small-only">
+            <i class="mdi mdi-target prefix"></i>
+            <input id="targetGroup" placeholder="Target Group" type="text" class="validate" data-ng-model="scope.event.targetGroup">
+        </div>
     </div>
-</div>
-<div class="row">
-    <div class="input-field center-on-small-only">
-        <i class="mdi mdi-gift prefix"></i>
-        <input id="gift" placeholder="Event Gift" type="text" class="validate" data-ng-model="scope.event.gift">
+    <div class="row">
+        <div class="input-field center-on-small-only">
+            <i class="mdi mdi-gift prefix"></i>
+            <input id="gift" placeholder="Event Gift" type="text" class="validate" data-ng-model="scope.event.gift">
+        </div>
     </div>
-</div>
-<div class="row">
-    <div class="input-field center-on-small-only">
-        <i class="mdi mdi-map-marker prefix"></i>
-        <input id="locationname" placeholder="Name" type="text" class="validate" data-ng-model="scope.event.location.name">
+    <div class="row">
+        <div class="input-field center-on-small-only">
+            <i class="mdi mdi-map-marker prefix"></i>
+            <input id="locationname" placeholder="Name" type="text" class="validate" data-ng-model="scope.event.location.name">
+        </div>
     </div>
-</div>
-<div class="row">
-    <div class="input-field center-on-small-only">
-        <i class="mdi mdi-map-marker prefix"></i>
-        <input id="locationstreet" placeholder="Street" type="text" class="validate" data-ng-model="scope.event.location.street">
+    <div class="row">
+        <div class="input-field center-on-small-only">
+            <i class="mdi mdi-map-marker prefix"></i>
+            <input id="locationstreet" placeholder="Street" type="text" class="validate" data-ng-model="scope.event.location.street">
+        </div>
     </div>
-</div>
-<div class="row">
-    <div class="input-field center-on-small-only">
-        <i class="mdi mdi-map-marker prefix"></i>
-        <input id="locationzipcode" placeholder="Zip Code" type="text" class="validate" data-ng-model="scope.event.location.zipCode">
+    <div class="row">
+        <div class="input-field center-on-small-only">
+            <i class="mdi mdi-map-marker prefix"></i>
+            <input id="locationzipcode" placeholder="Zip Code" type="text" class="validate" data-ng-model="scope.event.location.zipCode">
+        </div>
     </div>
-</div>
-<div class="row">
-    <div class="input-field center-on-small-only">
-        <i class="mdi mdi-map-marker prefix"></i>
-        <input id="locationcity" placeholder="City" type="text" class="validate" data-ng-model="scope.event.location.city">
+    <div class="row">
+        <div class="input-field center-on-small-only">
+            <i class="mdi mdi-map-marker prefix"></i>
+            <input id="locationcity" placeholder="City" type="text" class="validate" data-ng-model="scope.event.location.city">
+        </div>
     </div>
-</div>
-<div class="row">
-    <div class="input-field center-on-small-only">
-        <i class="mdi mdi-account-multiple prefix"></i>
-        <input id="maximalAmountOfGuests" placeholder="Max Amount of Guests" type="text" class="validate" data-ng-model="scope.event.maximalAmountOfGuests">
+    <div class="row">
+        <div class="input-field center-on-small-only">
+            <i class="mdi mdi-account-multiple prefix"></i>
+            <input id="maximalAmountOfGuests" placeholder="Max Amount of Guests" type="text" class="validate" data-ng-model="scope.event.maximalAmountOfGuests">
+        </div>
     </div>
-</div>
-<div class="row">
-    <div class="input-field col-md-6">
-        <i class="mdi mdi-calendar-clock prefix"></i>
-        <input id="begin" placeholder="Begin" type="datetime" class="validate" data-ng-model="scope.event.times.begin">
+    <div class="row">
+        <div class="input-field col-md-6">
+            <i class="mdi mdi-calendar-clock prefix"></i>
+            <input id="begin" required placeholder="Begin" type="datetime-local" class="validate" data-ng-model="scope.event.times.begin">
+        </div>
+        <div class="input-field col-md-6">
+            <i class="mdi mdi-calendar-clock prefix"></i>
+            <input id="end" required placeholder="End" type="datetime-local" class="validate" data-ng-model="scope.event.times.end">
+        </div>
     </div>
-    <div class="input-field col-md-6">
-        <i class="mdi mdi-calendar-clock prefix"></i>
-        <input id="end" placeholder="End" type="datetime" class="validate" data-ng-model="scope.event.times.end">
+    <div class="row" data-ng-switch on="scope.editMode">
+        <a data-ng-switch-when="false" class="btn-floating btn-large waves-effect waves-light red animated zoomIn" data-ng-click="scope.addEvent(scope.event)"><i class="material-icons">add</i></a>
+        <a data-ng-switch-when="true" class="btn-floating btn-large waves-effect waves-light red animated zoomIn" data-ng-click="scope.editEvent(scope.event)"><i class="material-icons">save</i></a>
     </div>
-</div>
-<div class="row" data-ng-switch on="scope.editMode">
-    <a data-ng-switch-when="false" class="btn-floating btn-large waves-effect waves-light red animated zoomIn" data-ng-click="scope.addEvent(scope.event)"><i class="material-icons">add</i></a>
-    <a data-ng-switch-when="true" class="btn-floating btn-large waves-effect waves-light red animated zoomIn" data-ng-click="scope.editEvent(scope.event)"><i class="material-icons">save</i></a>
-</div>
+</form>
 <div class="panel panel-default">
     <div class="panel-body">{{scope.event}}{{$routeParams}}</div>
 </div>

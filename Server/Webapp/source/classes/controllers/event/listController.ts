@@ -11,7 +11,7 @@ class EventListController {
 
     private events: Array<Event>;
     
-    constructor(private scope: Scope, private eventRepository: EventRepository) {
+    constructor(public scope: Scope, private eventRepository: EventRepository) {
         this.events = [];
         eventRepository.all().then((promise) => {
             promise.data.events.forEach((eventDto: any) => {

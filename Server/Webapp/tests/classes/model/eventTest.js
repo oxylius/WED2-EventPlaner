@@ -1,10 +1,9 @@
-///<reference path="../../typings/tsd.d.ts"/>
-define(["require", "exports", "../factories/eventFactory", "../../../source/classes/model/event"], function (require, exports, EventFactory, Event) {
+define(["require", "exports", "app/model/event"], function (require, exports, Event) {
     var _this = this;
     exports.run = function () {
         event: Event;
         describe('EventTest', function () {
-            beforeEach(function () { return _this.event = EventFactory.createEvent(); });
+            beforeEach(function () { return _this.event = Factory.createEvent(); });
             describe('set property begin', function () {
                 it('changes the property', function () {
                     expect(_this.event.times.begin)
@@ -27,7 +26,7 @@ define(["require", "exports", "../factories/eventFactory", "../../../source/clas
                 it('is a UUID', function () {
                     var uuidRegex = new RegExp('[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}');
                     expect(_this.event.id).toMatch(uuidRegex);
-                    var eventPredefinedId = EventFactory.createEvent('76ba7b42-0534-4d1f-9c0c-5b07488b0c2c');
+                    var eventPredefinedId = Factory.createEvent('76ba7b42-0534-4d1f-9c0c-5b07488b0c2c');
                     expect(eventPredefinedId.id).toBe('76ba7b42-0534-4d1f-9c0c-5b07488b0c2c');
                 });
             });
