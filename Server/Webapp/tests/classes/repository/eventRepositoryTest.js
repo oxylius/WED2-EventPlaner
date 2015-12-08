@@ -3,14 +3,15 @@ define(['tests/factories/eventFactory', 'app/model/event', 'app/repository/event
 	'use strict';
 
 	describe('EventRepository', function() {
-		var event, eventRepository, $http, $httpBackend;
+		var event, eventRepository, $http, $httpBackend, $q;
 
 		// setup
 		beforeEach(AngularMocks.inject(function($injector) {
 			$http = $injector.get('$http');
 			$httpBackend = $injector.get('$httpBackend');
+			$q = $injector.get('$q');
 
-			eventRepository = new EventRepository($http);
+			eventRepository = new EventRepository($http, $q);
 			event = EventFactory.createEvent();
 
 			$httpBackend.when('GET', eventRepository.urls.all).respond({

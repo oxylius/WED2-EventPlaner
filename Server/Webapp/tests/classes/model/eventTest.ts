@@ -1,3 +1,5 @@
+///<reference path="../../typings/tsd.d.ts" />
+
 import EventFactory = require("tests/factories/eventFactory");
 import Event = require("app/model/event");
 
@@ -5,7 +7,7 @@ export var run = () => {
     event: Event;
 
     describe('EventTest', () => {
-        beforeEach(() => this.event = Factory.createEvent());
+        beforeEach(() => this.event = EventFactory.createEvent());
 
         describe('set property begin', () => {
                 it('changes the property', () => {
@@ -35,7 +37,7 @@ export var run = () => {
                 var uuidRegex = new RegExp('[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}');
                 expect(this.event.id).toMatch(uuidRegex);
 
-                var eventPredefinedId = Factory.createEvent('76ba7b42-0534-4d1f-9c0c-5b07488b0c2c');
+                var eventPredefinedId = EventFactory.createEvent('76ba7b42-0534-4d1f-9c0c-5b07488b0c2c');
                 expect(eventPredefinedId.id).toBe('76ba7b42-0534-4d1f-9c0c-5b07488b0c2c');
             });
         });
