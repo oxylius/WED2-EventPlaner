@@ -11,9 +11,17 @@ define(['app/controllers/event/listController', 'frameworks/angular', 'libraries
 		var events = [{id: 1, name: 'Dinner'},{id: 2, name: 'Lunch'},{id: 3, name: 'Brunch'}];
 		// Mock repository to test controller only
 		eventRepository = {
-			all: function(successCallback) {
-				successCallback(events);
-			}
+		    all: () => {
+		        return {
+		            then: function (callback) {
+		                return callback({
+		                    data: {
+		                        events: events
+		                    }
+		                });
+		            }
+		        };
+            }
 		};
 	}));
 
@@ -21,7 +29,7 @@ define(['app/controllers/event/listController', 'frameworks/angular', 'libraries
 		describe('property scope', function() {
 			it('contains 3 events', function() {
 				var eventListController = new EventListController(scope, eventRepository);
-				expect(3).toBe(eventListController.scope.events.length);
+				expect(3).toBe(eventListController.events.length);
 			});
 		});
 	});

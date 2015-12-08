@@ -28,7 +28,7 @@ require.config({
 
 
 require(['libraries/jasmine-boot'], function () {
-	require(['tests/model/eventTest'], function(EventModelTest){
+	require(['tests/model/eventTest', 'tests/controllers/eventListControllerTest'], function(EventModelTest, EventListControllerTest){
 	    //trigger Jasmine
 	    EventModelTest.run();
 		window.onload();
