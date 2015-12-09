@@ -1,8 +1,14 @@
 ﻿class Times {
+    public begin: Date;
+    public end: Date;
+
     constructor(
-        public begin?: Date,
-        public end?: Date
-    ) { }
+        begin,
+        end
+    ) {
+            this.begin = new Date(begin);
+            this.end = new Date(end);
+    }
 
 }
 

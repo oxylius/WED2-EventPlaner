@@ -8,7 +8,7 @@ define(['app/controllers/event/listController', 'frameworks/angular', 'libraries
 	    beforeEach(AngularMocks.inject(function ($injector) {
 	        scope = $injector.get('$rootScope').$new();
 
-	        var events = [{ id: 1, name: 'Dinner' }, { id: 2, name: 'Lunch' }, { id: 3, name: 'Brunch' }];
+	        var events = [{ id: 1, name: 'Dinner'}, { id: 2, name: 'Lunch' }, { id: 3, name: 'Brunch' }];
 	        // Mock repository to test controller only
 	        eventRepository = {
 	            all: () => {

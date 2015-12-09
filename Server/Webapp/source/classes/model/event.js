@@ -9,7 +9,7 @@ define(["require", "exports", "../services/uuidService", "./location", "./Times"
             if (eventGift === void 0) { eventGift = ""; }
             if (description === void 0) { description = ""; }
             if (id === void 0) { id = null; }
-            if (times === void 0) { times = new Times(); }
+            if (times === void 0) { times = new Times(0, 0); }
             this.name = name;
             this.targetGroup = targetGroup;
             this.location = location;
@@ -21,7 +21,10 @@ define(["require", "exports", "../services/uuidService", "./location", "./Times"
             this.id = id || UuidService.getRandomUuid();
         }
         Event.createFromDTO = function (jsonData) {
-            return new Event(jsonData.name, jsonData.targetGroup, jsonData.location, jsonData.maximalAmountOfGuests, jsonData.eventGift, jsonData.description, jsonData.id, jsonData.times);
+            if (!jsonData.times) {
+                jsonData.times = new Times(0, 0);
+            }
+            return new Event(jsonData.name, jsonData.targetGroup, jsonData.location, jsonData.maximalAmountOfGuests, jsonData.eventGift, jsonData.description, jsonData.id, new Times(jsonData.times.begin, jsonData.times.end));
         };
         return Event;
     })();

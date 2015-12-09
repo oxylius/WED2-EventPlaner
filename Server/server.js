@@ -183,9 +183,13 @@ app.post('/api/events/:id', function(request, response) {
 		if(request.body.location && event.location != request.body.location) {
 			event.location = request.body.location;
 		}
-		if(request.body.times && event.times != request.body.times) {
-			event.times = request.body.times;
-		}		
+		if(request.body.times.begin && event.times.begin != request.body.times.begin) {
+			event.times.begin = new Date(request.body.times.begin);
+        }
+        if (request.body.times.end && event.times.end != request.body.times.end) {
+            event.times.end = new Date(request.body.times.end);
+        }
+       		
 		response.json(event);
 	} else {
 		response.status(404).send('Event (id '+request.params.id+') not found.')
