@@ -5,7 +5,7 @@
 </nav>
 
 <h2 class="h2-responsive center-on-small-only">{{scope.editMode?'Edit Event':'Add Event'}}</h2>
-<form>
+<form name="addEvent">
     <div class="row">
         <div class="input-field center-on-small-only">
             <input id="name" required placeholder="Name" type="text" class="validate" data-ng-model="scope.event.name">
@@ -56,7 +56,7 @@
     <div class="row">
         <div class="input-field center-on-small-only">
             <i class="mdi mdi-account-multiple prefix"></i>
-            <input id="maximalAmountOfGuests" placeholder="Max Amount of Guests" type="text" class="validate" data-ng-model="scope.event.maximalAmountOfGuests">
+            <input id="maximalAmountOfGuests" placeholder="Max Amount of Guests" type="number" min="1" max="1000" class="validate" data-ng-model="scope.event.maximalAmountOfGuests">
         </div>
     </div>
     <div class="row">
@@ -74,6 +74,6 @@
         <a data-ng-switch-when="true" class="btn-floating btn-large waves-effect waves-light red animated zoomIn" data-ng-click="scope.editEvent(scope.event)"><i class="material-icons">save</i></a>
     </div>
 </form>
-<div class="panel panel-default">
+<!--<div class="panel panel-default">
     <div class="panel-body">{{scope.event}}{{$routeParams}}</div>
-</div>
+</div>-->

@@ -5,32 +5,32 @@
 </nav>
 
 
-<h2 class="h2-responsive">{{scope.event.name}} <a class="btn-floating btn-large waves-effect waves-light red animated zoomIn" href="#/edit/event/{{scope.event.id}}"><i class="material-icons">edit</i></a></h2>
-<p>{{scope.event.description}}</p>
+<h2 class="h2-responsive center-on-small-only">{{scope.event.name}} <a class="btn-floating btn-large waves-effect waves-light red animated zoomIn" href="#/edit/event/{{scope.event.id}}"><i class="material-icons">edit</i></a></h2>
+<p class="center-on-small-only">{{scope.event.description}}</p>
 
-<h3 data-ng-if="scope.event.targetGroup"><i class="mdi mdi-target"></i>Target group</h3>
-<p data-ng-if="scope.event.targetGroup">{{scope.event.targetGroup}}</p>
+<h3 data-ng-if="scope.event.targetGroup" class="center-on-small-only"><i class="mdi mdi-target"></i>Target group</h3>
+<p data-ng-if="scope.event.targetGroup" class="center-on-small-only">{{scope.event.targetGroup}}</p>
 
-<h3 data-ng-if="scope.event.eventGift">Event gift</h3>
-<p data-ng-if="scope.event.eventGift">{{scope.event.eventGift}}</p>
+<h3 data-ng-if="scope.event.eventGift" class="center-on-small-only">Event gift</h3>
+<p data-ng-if="scope.event.eventGift" class="center-on-small-only">{{scope.event.eventGift}}</p>
 
-<h3><i class="mdi mdi-map-marker"></i>Location</h3>
-<p>
+<h3 class="center-on-small-only"><i class="mdi mdi-map-marker"></i>Location</h3>
+<p class="center-on-small-only">
 	<strong>{{scope.event.location.name}}</strong><br />
 	{{scope.event.location.street}}<br />
 	{{scope.event.location.plz}} {{event.location.city}}
 </p>
 
-<h3><i class="mdi mdi-calendar-clock"></i>Date &amp; time</h3>
-<p>{{scope.event.times.begin | date:"dd.MM.yy HH:mm"}} - {{scope.event.times.end | date:"dd.MM.yy HH:mm"}}</p>
+<h3 class="center-on-small-only"><i class="mdi mdi-calendar-clock"></i>Date &amp; time</h3>
+<p class="center-on-small-only">{{scope.event.times.begin | date:"dd.MM.yy HH:mm"}} - {{scope.event.times.end | date:"dd.MM.yy HH:mm"}}</p>
 
 <div data-ng-controller="GuestController as guestscope">
-<h3 class="" data-ng-show="scope.event.maximalAmountOfGuests == ''"><span class="label label-primary">{{filteredGuests.length}}</span> Guests <a class="btn-floating btn-large waves-effect waves-light red animated zoomIn" data-ng-click="guestscope.add()"><i class="mdi mdi-account-plus"></i></a></h3>
-<h3 class="" data-ng-show="scope.event.maximalAmountOfGuests > 0"><span class="label {{filteredGuests.length < scope.event.maximalAmountOfGuests?'label-primary':'label-danger'}}">{{filteredGuests.length}}/{{scope.event.maximalAmountOfGuests}}</span> Guests <a data-ng-show="filteredGuests.length < scope.event.maximalAmountOfGuests" class="btn-floating btn-large waves-effect waves-light red animated zoomIn" data-ng-click="guestscope.add()"><i class="material-icons">add</i></a></h3>
+<h3 class="center-on-small-only" data-ng-show="scope.event.maximalAmountOfGuests == ''"><span class="label label-primary">{{filteredGuests.length}}</span> Guests <a class="btn-floating btn-large waves-effect waves-light red animated zoomIn" data-ng-click="guestscope.add()"><i class="mdi mdi-account-plus"></i></a></h3>
+<h3 class="center-on-small-only" data-ng-show="scope.event.maximalAmountOfGuests > 0"><span class="label {{filteredGuests.length < scope.event.maximalAmountOfGuests?'label-primary':'label-danger'}}">{{filteredGuests.length}}/{{scope.event.maximalAmountOfGuests}}</span> Guests <a data-ng-show="filteredGuests.length < scope.event.maximalAmountOfGuests" class="btn-floating btn-large waves-effect waves-light red animated zoomIn" data-ng-click="guestscope.add()"><i class="material-icons">add</i></a></h3>
     <div data-ng-repeat="guest in filteredGuests = (guestscope.guests | filter:{canceled: false})">
         <div class="row">
             <div class="center-on-small-only col-xs-9">
-                <p>{{guest.name}} bringt {{guest.contribution}} <cite data-ng-show="guest.comment">"{{guest.comment}}"</cite></p>
+                <p>{{guest.name}} bringt {{guest.contribution? guest.contribution:'Nichts'}} <cite data-ng-show="guest.comment">"{{guest.comment}}"</cite></p>
             </div>
             <div class="col-xs-3">
                 <button type="button" class="btn btn-xs-guest btn-info" data-ng-click="guestscope.toggleEditMode(guest)"><i class="mdi mdi-pencil"></i></button>
@@ -41,7 +41,7 @@
         </div>
         <div class="row" data-ng-show="guest.editMode">
             <div class="input-field center-on-small-only col-md-4">
-                <input id="name" placeholder="Name" type="text" class="validate" data-ng-model="guest.name">
+                <input required id="name" placeholder="Name" type="text" class="validate" data-ng-model="guest.name">
             </div>
             <div class="input-field center-on-small-only col-md-4">
                 <input id="contribution" placeholder="Contribution" type="text" class="validate" data-ng-model="guest.contribution">
