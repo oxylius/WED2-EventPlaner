@@ -1,4 +1,4 @@
-///<reference path="../../typings/tsd.d.ts" />
+///<reference path="../../typings/jasmine/jasmine.d.ts" />
 define(["require", "exports", "tests/factories/eventFactory", "app/model/event"], function (require, exports, EventFactory, Event) {
     var _this = this;
     exports.run = function () {

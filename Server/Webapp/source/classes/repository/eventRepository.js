@@ -1,4 +1,3 @@
-///<reference path="../../typings/tsd.d.ts"/>
 define(["require", "exports"], function (require, exports) {
     var EventRepository = (function () {
         function EventRepository($http, $q) {
@@ -43,29 +42,3 @@ define(["require", "exports"], function (require, exports) {
     })();
     return EventRepository;
 });
-///**
-//		 * Find event by identifier
-//		 *
-//		 * @param string identifier
-//		 */
-//this.get = function (event, successCallback) {
-//    $http.get(this.urls.get.replace(':eventId', event))
-//        .success(function (eventDTO) {
-//            successCallback(Event.createFromDTO(eventDTO));
-//        });
-//};
-///**
-// * Add event
-// * @param Event event
-// */
-//this.add = function (event, successCallback) {
-//    $http.post(this.urls.add, event)
-//        .success(function (eventDTO) {
-//            successCallback(Event.createFromDTO(eventDTO));
-//        });
-//};
-//this.edit = function (event, successCallback) {
-//    $http.post(this.urls.edit.replace(':eventId', event.id), event)
-//        .success(function (eventDTO) {
-//            successCallback(Event.createFromDTO(eventDTO));
-//        });

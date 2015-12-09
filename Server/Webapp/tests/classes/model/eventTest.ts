@@ -1,4 +1,4 @@
-///<reference path="../../typings/tsd.d.ts" />
+///<reference path="../../typings/jasmine/jasmine.d.ts" />
 
 import EventFactory = require("tests/factories/eventFactory");
 import Event = require("app/model/event");
